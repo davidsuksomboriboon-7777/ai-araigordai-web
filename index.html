@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI อะไรก็ได้ | สถาบันสอนและที่ปรึกษาการใช้ AI ทำงานจริง (Basic & Advance AI)</title>
+  <meta name="description" content="คอร์สเรียน AI ตั้งแต่พื้นฐานถึงขั้นสูง สอนโดยคุณดาวิด (David) Basic AI 990.- และ Advance AI วางระบบ Automation 1:1 และ Workshop เจาะลึกตามเนื้องานจริง">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Custom Stylesheet with Cache-Busting -->
+  <link rel="stylesheet" href="assets/style.css?v=20260828_2">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Prompt"', 'system-ui', 'sans-serif'],
+            heading: ['"Kanit"', '"Prompt"', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              cyan: '#00C2FF',
+              blue: '#0088FF',
+              deep: '#0052CC',
+              navy: '#001F54',
+              dark: '#0A192F',
+              yellow: '#FACC15',
+              line: '#06C755',
+              fb: '#1877F2'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-cyan-500 selection:text-white min-h-screen flex flex-col justify-between relative">
+
+  <!-- Fixed Motion Video Background (Loop, No Music, Fade 80% / Opacity 20%) -->
+  <div class="fixed inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
+    <video 
+      class="w-full h-full object-cover opacity-20 filter saturate-125" 
+      autoplay 
+      loop 
+      muted 
+      playsinline
+      preload="auto">
+      <source src="assets/videos/bg-motion.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-slate-50/20 backdrop-blur-[1px] pointer-events-none"></div>
+  </div>
+
+  <!-- 1. Header & Navigation Bar (Glassmorphism Navbar) -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav-2 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-2xl bg-white p-1.5 shadow-md border border-cyan-100 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+          <img src="assets/images/logo.png" alt="AI อะไรก็ได้ Logo" class="w-full h-full object-contain">
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-1.5 font-heading">
+            <span>AI อะไรก็ได้</span>
+            <span class="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+          </span>
+          <span class="text-[11px] font-semibold text-slate-500 tracking-wider">ใช้ AI ให้เป็น | ทำอะไรก็ได้</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
+        <a href="#hero" class="hover:text-blue-600 transition-colors">หน้าแรก</a>
+        <a href="#instructor" class="hover:text-blue-600 transition-colors">ผู้สอน (David)</a>
+        <a href="#courses" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
+          <span>คอร์สเรียน</span>
+          <span class="text-[10px] font-bold bg-yellow-400 text-slate-900 px-2 py-0.5 rounded-full shadow-sm">โปร 990.-</span>
+        </a>
+        <a href="#target-audience" class="hover:text-blue-600 transition-colors">เหมาะกับใคร</a>
+        <a href="#registration" class="hover:text-blue-600 transition-colors">ประเมินทักษะ & สมัคร</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="tel:0922565623" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-all flex items-center gap-2 border border-slate-200">
+          <i data-lucide="phone-call" class="w-4 h-4 text-blue-600"></i>
+          <span>092-2565623</span>
+        </a>
+        <a href="https://lin.ee/xGJFmH9" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-[#06C755] hover:bg-[#05a847] text-white text-xs font-bold transition-all shadow-md shadow-emerald-500/20 flex items-center gap-2 hover:scale-105">
+          <img src="assets/images/line-logo.svg" alt="Line" class="w-4 h-4 object-contain">
+          <span>ทัก Line OA</span>
+        </a>
+        <a href="#registration" class="px-5 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white text-xs font-bold transition-all shadow-md shadow-blue-500/25 flex items-center gap-1.5 hover:scale-105 font-heading">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span>จองสิทธิ์ด่วน</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200" aria-label="Toggle Mobile Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 py-5 space-y-4">
+      <a href="#hero" class="block text-sm font-bold text-slate-800 py-1">หน้าแรก</a>
+      <a href="#instructor" class="block text-sm font-bold text-slate-800 py-1">ผู้สอน (David)</a>
+      <a href="#courses" class="block text-sm font-bold text-slate-800 py-1 flex items-center justify-between">
+        <span>คอร์สเรียน AI</span>
+        <span class="text-[10px] font-bold bg-yellow-400 text-slate-900 px-2 py-0.5 rounded-full">โปร 990.-</span>
+      </a>
+      <a href="#target-audience" class="block text-sm font-bold text-slate-800 py-1">เหมาะสำหรับใคร</a>
+      <a href="#registration" class="block text-sm font-bold text-slate-800 py-1">แบบฟอร์มประเมินทักษะ</a>
+      <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+        <a href="https://lin.ee/xGJFmH9" target="_blank" class="w-full py-2.5 rounded-xl bg-[#06C755] text-white text-center font-bold text-xs flex items-center justify-center gap-2">
+          <img src="assets/images/line-logo.svg" alt="Line" class="w-4 h-4 object-contain">
+          <span>ทัก LINE OA สอบถามคอร์ส</span>
+        </a>
+        <a href="tel:0922565623" class="w-full py-2.5 rounded-xl bg-slate-100 text-slate-800 text-center font-bold text-xs flex items-center justify-center gap-2">
+          <i data-lucide="phone" class="w-4 h-4 text-blue-600"></i>
+          <span>โทร: 092-2565623</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="flex-grow pt-28 pb-20 relative z-10">
+
+    <!-- 2. Hero Section (High-Impact Headline & Real Video Player Hook) -->
+    <section id="hero" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <!-- Ambient Glow -->
+      <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[450px] bg-cyan-400/15 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse-halo"></div>
+      
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Hero Text & Value Proposition -->
+        <div class="lg:col-span-7 space-y-8 text-center lg:text-left" data-aos="fade-right" data-aos-duration="900">
+          
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold tracking-wide uppercase shadow-sm animate-ring-pulse font-heading">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-ping"></span>
+            <span>AI Practical Workshop & 1:1 Consulting / Group</span>
+          </div>
+
+          <!-- [Headline Hook] -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.3] text-slate-900 space-y-2 font-heading">
+            <span class="block text-slate-900">อยากใช้ AI ให้เป็น</span>
+            <span class="block text-shimmer-brand py-1">ไม่ใช่แค่รู้จัก AI</span>
+            <span class="block text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-700">
+              เปลี่ยน AI เป็นทีมงานมือโปร ทำงานแทนคุณ <span class="text-blue-600 font-bold">เร็วขึ้น 10 เท่า!</span>
+            </span>
+          </h1>
+
+          <!-- [SubHead] -->
+          <p class="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            คอร์สเรียน AI เชิงปฏิบัติการแบบจับมือทำจริง <strong class="text-slate-900 font-semibold bg-cyan-100/70 px-2 py-0.5 rounded">(Workshop 1:1 & Group)</strong> วางแนวทางเฉพาะทางตามเนื้องานของคุณ ทั้ง การสร้างรูปภาพ, ทำคลิปวิดีโอ, เขียน Prompt ให้ได้ผลลัพธ์ตรงจุด, และสร้างระบบ Workflow อัตโนมัติ
+          </p>
+
+          <!-- Dual Hero CTAs -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#registration" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold text-base transition-all shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] flex items-center justify-center gap-3 font-heading">
+              <span>ลงทะเบียนประเมินทักษะ AI ฟรี</span>
+              <i data-lucide="arrow-right-circle" class="w-5 h-5"></i>
+            </a>
+            <a href="#courses" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white text-slate-800 font-semibold text-base hover:bg-slate-50 transition-all flex items-center justify-center gap-3 border border-slate-200 shadow-sm hover:border-cyan-400 font-heading">
+              <i data-lucide="book-open" class="w-5 h-5 text-cyan-600"></i>
+              <span>ดูรายละเอียดคอร์ส (เริ่ม 990.-)</span>
+            </a>
+          </div>
+
+          <!-- Quick Trust Badges -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-semibold text-slate-600">
+            <div class="flex items-center gap-2">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+              <span>· เรียน On-site อุดรธานี & Online ทั่วประเทศ</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check-circle" class="w-4 h-4 text-blue-500"></i>
+              <span>· สอน 1:1 หรือกลุ่มย่อย เจาะลึกเนื้องานจริง</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check-circle" class="w-4 h-4 text-amber-500"></i>
+              <span>· สิทธิ์เข้ากลุ่ม LINE อัปเดตเครื่องมือ AI อยู่เสมอ</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hero Media Frame (Real Video Cover Interface) -->
+        <div class="lg:col-span-5 relative" data-aos="fade-left" data-aos-duration="900">
+          <div class="relative rounded-3xl p-2 bg-gradient-to-b from-cyan-400/40 via-blue-500/20 to-slate-200 shadow-2xl shadow-cyan-500/20 border border-cyan-200 card-hover-effect">
+            <div id="hero-video-trigger-box" class="relative bg-slate-950 rounded-2xl overflow-hidden shadow-xl group cursor-pointer aspect-video sm:aspect-[16/10] flex items-center justify-center">
+              
+              <!-- Video Poster Thumbnail -->
+              <img src="assets/images/banner-cover.png" alt="แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-95">
+              
+              <!-- Dark Cinematic Gradient Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-slate-950/40 group-hover:bg-slate-950/30 transition-colors"></div>
+
+              <!-- Top Bar / Player Status -->
+              <div class="absolute top-0 left-0 right-0 p-4 flex items-center justify-between text-white text-xs z-10">
+                <div class="flex items-center gap-2 bg-slate-950/70 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span class="font-medium text-[11px] text-slate-200">AI อะไรก็ได้</span>
+                </div>
+                <span class="text-[10px] font-bold bg-cyan-500 text-slate-950 px-2.5 py-1 rounded-lg shadow font-heading uppercase tracking-wider">
+                  OFFICIAL VIDEO
+                </span>
+              </div>
+
+              <!-- Center Big Play Button -->
+              <button id="play-intro-video-btn" class="absolute z-10 w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 text-white flex items-center justify-center shadow-2xl shadow-cyan-500/60 group-hover:scale-110 transition-all duration-300 animate-glow" aria-label="เล่นคลิป แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้">
+                <i data-lucide="play" class="w-10 h-10 fill-current ml-1 text-white"></i>
+              </button>
+
+              <!-- Bottom Video Title & Play Badge -->
+              <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-transparent z-10 flex items-end justify-between gap-3 text-white">
+                <div class="space-y-0.5">
+                  <h3 class="text-base sm:text-lg font-bold text-white font-heading leading-tight drop-shadow-md">
+                    แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้
+                  </h3>
+                  <p class="text-cyan-300 text-xs font-medium">คลิกเพื่อรับชมวิดีโอแนะนำ</p>
+                </div>
+                <div class="shrink-0">
+                  <span class="px-3.5 py-1.5 rounded-xl bg-blue-600/90 hover:bg-blue-600 text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg backdrop-blur-sm border border-blue-400/30 font-heading">
+                    <i data-lucide="play-circle" class="w-4 h-4"></i>
+                    <span>รับชม</span>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. Meet Your Instructor (คุณดาวิด - David) -->
+    <section id="instructor" class="py-20 px-4 sm:px-6 lg:px-8 bg-white border-y border-slate-200">
+      <div class="max-w-7xl mx-auto space-y-12">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3" data-aos="fade-up">
+          <span class="text-cyan-600 font-mono text-xs uppercase font-bold tracking-widest font-heading">ABOUT INSTRUCTOR</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 font-heading">
+            เรียนรู้กับ <span class="text-shimmer-brand">คุณดาวิด (David)</span>
+          </h2>
+          <p class="text-slate-600 text-base">
+            ถ่ายทอดจากประสบการณ์จริงในการประยุกต์ใช้เครื่องมือ AI ในอุตสาหกรรมการตลาดและสื่อดิจิทัล
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Instructor Photo with Tech Halo -->
+          <div class="lg:col-span-5 flex justify-center" data-aos="fade-right" data-aos-duration="900">
+            <div class="relative w-full max-w-sm">
+              <div class="absolute inset-0 bg-gradient-to-tr from-cyan-400 to-blue-600 rounded-3xl blur-2xl opacity-20 transform -rotate-3"></div>
+              <div class="relative rounded-3xl overflow-hidden bg-gradient-to-b from-slate-100 to-slate-50 border-2 border-cyan-200 shadow-2xl card-hover-effect">
+                <img src="assets/images/david.png" alt="David - คุณดาวิด ผู้สอน AI อะไรก็ได้" class="w-full h-auto object-cover">
+                <div class="p-5 bg-white text-center space-y-1.5 border-t border-slate-100">
+                  <h3 class="text-xl font-bold text-slate-900 font-heading">คุณดาวิด (David)</h3>
+                  <p class="text-xs font-semibold text-blue-600 leading-relaxed">เคยทำงานในด้าน Digital Marketing ในส่วนของ Creative Producer และใช้เครื่องมือ AI ในการทำงานมาก่อน</p>
+                  <p class="text-[11px] text-slate-500 font-medium">ผู้ก่อตั้งเพจและช่อง "AI อะไรก็ได้"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instructor Credentials & Philosophy -->
+          <div class="lg:col-span-7 space-y-6" data-aos="fade-left" data-aos-duration="900">
+            
+            <div class="space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-50 border border-cyan-200 text-cyan-700 text-xs font-bold font-heading">
+                <i data-lucide="award" class="w-4 h-4"></i>
+                <span>ประสบการณ์จริงในสาย Digital Marketing & AI Tools</span>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 leading-snug font-heading">
+                คุณดาวิด (David)
+              </h3>
+              <p class="text-slate-800 text-base font-semibold leading-relaxed">
+                เคยทำงานในด้าน Digital Marketing ในส่วนของ Creative Producer และใช้เครื่องมือ AI ในการทำงานมาก่อน
+              </p>
+              <p class="text-slate-600 text-base leading-relaxed">
+                "เราไม่ได้สอนแค่ทฤษฎี แต่สอนให้คุณนำ AI ไปใช้สร้างผลงานจริงในงานของคุณได้ทันที ด้วยการวิเคราะห์เนื้องานจริงของผู้เรียน เพื่อแนะนำและเซ็ตเครื่องมือ AI ให้ตรงจุดที่สุด"
+              </p>
+            </div>
+
+            <!-- 4 Key Highlights -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 card-hover-effect">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center">
+                  <i data-lucide="target" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm font-heading">Personalized Consulting</h4>
+                <p class="text-xs text-slate-500">สอบถามและวิเคราะห์เนื้องานของผู้เรียนก่อนสอนจริง เพื่อเลือกเครื่องมือที่ตรงจุดที่สุด</p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 card-hover-effect">
+                <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center">
+                  <i data-lucide="laptop" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm font-heading">Hands-on Workshop</h4>
+                <p class="text-xs text-slate-500">ลงมือปฏิบัติจริง นำงานจริงของผู้เรียนมาทำเป็นแบบฝึกหัดในคลาส</p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 card-hover-effect">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                  <i data-lucide="message-square" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm font-heading">LINE Support Community</h4>
+                <p class="text-xs text-slate-500">สิทธิ์เข้ากลุ่มพิเศษ อัปเดตข่าวสาร เทคนิค และเครื่องมือ AI ใหม่ๆ อย่างต่อเนื่อง</p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 card-hover-effect">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm font-heading">Flexible Learning Format</h4>
+                <p class="text-xs text-slate-500">เลือกเรียน On-site (จ.อุดรธานี) หรือ Online ผ่าน Google Meet ได้ตามสะดวก</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. Detailed Course Tracks (Basic AI & Advance AI) -->
+    <section id="courses" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50">
+      <div class="max-w-7xl mx-auto space-y-16">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-4" data-aos="fade-up">
+          <span class="text-blue-600 font-mono text-xs uppercase font-bold tracking-widest font-heading">COURSE OFFERINGS</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 font-heading">
+            2 หลักสูตรตอบโจทย์ทุกระดับ <span class="text-shimmer-brand">Basic & Advance AI</span>
+          </h2>
+          <p class="text-slate-600 text-base sm:text-lg">
+            เลือกเรียนได้ตามเป้าหมาย ไม่ว่าคุณจะเริ่มต้นจากศูนย์ หรือต้องการต่อยอดสร้างระบบ AI Automation ในองค์กร
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          
+          <!-- Course Track 1: Basic AI (Special Promo 990.-) -->
+          <div class="relative bg-white rounded-3xl p-8 sm:p-10 border-2 border-blue-500 shadow-2xl space-y-8 flex flex-col justify-between card-hover-effect" data-aos="fade-right" data-aos-duration="900">
+            
+            <!-- Top Promo Ribbon -->
+            <div class="absolute -top-4 right-8 bg-gradient-to-r from-red-600 to-amber-500 text-white font-bold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg flex items-center gap-1.5 font-heading">
+              <i data-lucide="flame" class="w-4 h-4"></i>
+              <span>หั่นราคาโปรโมชัน!</span>
+            </div>
+
+            <div class="space-y-6">
+              
+              <!-- Track Header -->
+              <div class="space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-50 text-blue-700 text-xs font-bold font-heading">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i>
+                  <span>COURSE 01 : FOUNDATION WORKSHOP</span>
+                </div>
+                <h3 class="text-3xl font-bold text-slate-900 font-heading">คอร์ส Basic AI</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  เรียนรู้และลงมือทำจริง เจาะลึกการใช้เครื่องมือ AI เพื่อทำงานให้ตรงกับประเภทงานของคุณโดยเฉพาะ
+                </p>
+              </div>
+
+              <!-- Official Course Poster Banner -->
+              <div id="open-poster-btn" class="relative rounded-2xl overflow-hidden border-2 border-blue-200 shadow-md group cursor-pointer bg-slate-100">
+                <img src="assets/images/poster-basic-ai.png" alt="โปสเตอร์โปรโมทคอร์ส Basic AI" class="w-full h-auto max-h-[360px] object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex items-end justify-between p-4">
+                  <span class="text-white text-xs font-semibold flex items-center gap-1.5 bg-blue-600/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow font-heading">
+                    <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                    <span>คลิกเพื่อดูโปสเตอร์ขนาดเต็ม</span>
+                  </span>
+                  <span class="text-slate-950 font-bold text-xs bg-yellow-400 px-3 py-1.5 rounded-lg shadow font-heading">
+                    🔥 เหลือเพียง 990.-
+                  </span>
+                </div>
+              </div>
+
+              <!-- Price Box -->
+              <div class="p-5 rounded-2xl bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-slate-500 font-medium line-through block">จากราคาปกติ 1,990.-</span>
+                  <div class="flex items-baseline gap-1 mt-0.5">
+                    <span class="text-4xl font-bold text-blue-600 font-heading">990.-</span>
+                    <span class="text-xs text-slate-600 font-semibold">บาท / ท่าน</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-[11px] font-bold bg-amber-400 text-slate-950 px-2.5 py-1 rounded-md shadow-sm block font-heading">
+                    ประหยัด 50% ทันที
+                  </span>
+                  <span class="text-[11px] text-slate-500 mt-1 block">เวลาเรียน ~ 2:30 ชม.</span>
+                </div>
+              </div>
+
+              <!-- Course Highlights / Syllabus List -->
+              <div class="space-y-4">
+                <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2 font-heading">
+                  <i data-lucide="check-square" class="w-4 h-4 text-blue-600"></i>
+                  <span>เนื้อหาและสิ่งที่คุณจะได้เรียนรู้:</span>
+                </h4>
+                <ul class="space-y-3 text-sm text-slate-700">
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5 shrink-0">✓</span>
+                    <span><strong>รู้จัก AI Tools ชนิดต่างๆ:</strong> แนะนำเครื่องมือที่ตรงกับความต้องการและสายงานของคุณมากที่สุด</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5 shrink-0">✓</span>
+                    <span><strong>ทำรูปภาพ (AI Images):</strong> สร้างภาพกราฟิก โฆษณา สินค้า และคอนเทนต์แบบมือโปร</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5 shrink-0">✓</span>
+                    <span><strong>สร้าง VDO (AI Video):</strong> ตัดต่อ ผลิตคลิปสั้น และใส่เสียงบรรยายด้วย AI</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5 shrink-0">✓</span>
+                    <span><strong>หลักการเขียน Prompt:</strong> เทคนิคป้อนคำสั่งให้ได้ผลลัพธ์ตรงจุดที่สุด</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5 shrink-0">✓</span>
+                    <span><strong>Workshop ลงมือทำจริง:</strong> นำเนื้องานจริงของคุณมาฝึกปฏิบัติพร้อมรับคำแนะนำรายบุคคล (1:1 / กลุ่ม)</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold mt-0.5 shrink-0">★</span>
+                    <span><strong>สิทธิ์เข้ากลุ่ม LINE VIP:</strong> อัปเดตเครื่องมือ AI อยู่เสมอโดยผู้สอน</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Format info -->
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-blue-600"></i>
+                  <span><strong>On-site:</strong> เฉพาะในจังหวัดอุดรธานี</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="video" class="w-4 h-4 text-cyan-600"></i>
+                  <span><strong>Online:</strong> เรียนผ่าน Google Meet ทั่วประเทศ</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- CTA Button -->
+            <a href="#registration" class="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] flex items-center justify-center gap-2 block font-heading">
+              <span>สมัครคอร์ส Basic AI (รับโปร 990.-)</span>
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </a>
+
+          </div>
+
+          <!-- Course Track 2: Advance AI (Automation & Workflows) -->
+          <div class="relative bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl space-y-8 flex flex-col justify-between card-hover-effect hover:border-cyan-400" data-aos="fade-left" data-aos-duration="900">
+            
+            <div class="space-y-6">
+              
+              <!-- Track Header -->
+              <div class="space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-50 text-cyan-700 text-xs font-bold font-heading">
+                  <i data-lucide="cpu" class="w-4 h-4"></i>
+                  <span>COURSE 02 : ADVANCED AUTOMATION</span>
+                </div>
+                <h3 class="text-3xl font-bold text-slate-900 font-heading">คอร์ส Advance AI</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  ยกระดับการทำงานสู่ระบบ AI Automation วางระบบ Workflow ให้ AI ทำงานต่อเนื่องตั้งแต่ต้นจนจบ
+                </p>
+              </div>
+
+              <!-- Badge Box -->
+              <div class="p-5 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 text-white flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-cyan-300 font-medium block font-heading">AI Automation & Autonomous Systems</span>
+                  <div class="text-xl font-bold text-white mt-1 font-heading">วางระบบผู้ช่วยอัตโนมัติ</div>
+                </div>
+                <div class="text-right">
+                  <span class="text-[11px] font-bold bg-cyan-500 text-slate-950 px-2.5 py-1 rounded-md font-heading">
+                    ลดงานซ้ำซ้อน 80%
+                  </span>
+                </div>
+              </div>
+
+              <!-- Course Highlights / Syllabus List -->
+              <div class="space-y-4">
+                <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2 font-heading">
+                  <i data-lucide="check-square" class="w-4 h-4 text-cyan-600"></i>
+                  <span>เนื้อหาและสิ่งที่คุณจะได้เรียนรู้:</span>
+                </h4>
+                <ul class="space-y-3 text-sm text-slate-700">
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center text-xs font-bold mt-0.5 shrink-0">✓</span>
+                    <span><strong>AI Assistant Automation:</strong> สอนการใช้ AI เข้ามาเป็นผู้ช่วยในการทำงานอัตโนมัติเต็มรูปแบบ</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center text-xs font-bold mt-0.5 shrink-0">✓</span>
+                    <span><strong>ลดงานซ้ำซ้อน (Repetitive Tasks):</strong> เชื่อมต่อระบบงานเอกสาร, ข้อมูล, และการตลาดให้ทำงานเอง</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center text-xs font-bold mt-0.5 shrink-0">✓</span>
+                    <span><strong>วางระบบ AI Workflow:</strong> ออกแบบ Flow การทำงานต่อเนื่องแบบ Step-by-Step ตั้งแต่ต้นจนจบ</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center text-xs font-bold mt-0.5 shrink-0">✓</span>
+                    <span><strong>Multi-AI Tool Integration:</strong> เชื่อมการทำงานระหว่าง LLMs, Image Gen, และ Automation Tools</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold mt-0.5 shrink-0">★</span>
+                    <span><strong>ปรึกษาเชิงลึกระดับธุรกิจ:</strong> วาง Blueprint ระบบ AI เฉพาะธุรกิจและทีมงานของคุณ</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Format info -->
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-cyan-600"></i>
+                  <span>เหมาะสำหรับเจ้าของธุรกิจ, ฟรีแลนซ์, และทีมงานที่ต้องการสเกลงาน</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- CTA Button -->
+            <a href="#registration" class="w-full py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-center text-sm transition-all shadow-lg hover:scale-[1.02] flex items-center justify-center gap-2 block font-heading">
+              <span>สนใจคอร์ส Advance AI (ปรึกษาวางระบบ)</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 text-cyan-400"></i>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. Who is This For (Target Audience) -->
+    <section id="target-audience" class="py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
+      <div class="max-w-7xl mx-auto space-y-16">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3" data-aos="fade-up">
+          <span class="text-cyan-600 font-mono text-xs uppercase font-bold tracking-widest font-heading">WHO SHOULD LEARN</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 font-heading">
+            คอร์สนี้เหมาะสำหรับใครบ้าง?
+          </h2>
+          <p class="text-slate-600 text-base">
+            ไม่ว่าคุณจะอยู่ในสายงานไหน AI สามารถเข้ามาช่วยประหยัดเวลาและเพิ่มมูลค่างานได้ทันที
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Group 1 -->
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 card-hover-effect" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center">
+              <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 font-heading">พ่อค้าแม่ค้าออนไลน์ & SME</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              ทำภาพสินค้าสวยสะดุดตา, เขียนแคปชันขายของ, และผลิตคลิปสั้นลง TikTok/Reels ได้ด้วยตัวเองโดยไม่ต้องจ้างทีมแพงๆ
+            </p>
+          </div>
+
+          <!-- Group 2 -->
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 card-hover-effect" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center">
+              <i data-lucide="palette" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 font-heading">Content Creator & กราฟิก</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              ระดมไอเดียคอนเทนต์ไวรัล, คิดสคริปต์วิดีโอ 3 วินาทีแรก, ทำรูปประกอบบทความ และสร้างสตอรี่บอร์ดได้อย่างรวดเร็ว
+            </p>
+          </div>
+
+          <!-- Group 3 -->
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 card-hover-effect" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
+              <i data-lucide="briefcase" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 font-heading">พนักงานประจำ & ฟรีแลนซ์</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              สรุปเอกสารยาวๆ, จัดการข้อมูล Excel, ร่างอีเมลภาษาอังกฤษ, และสร้างพรีเซนเทชันสวยหรู เสร็จไวกว่าเดิม 10 เท่า
+            </p>
+          </div>
+
+          <!-- Group 4 -->
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 card-hover-effect" data-aos="fade-up" data-aos-delay="400">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center">
+              <i data-lucide="compass" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 font-heading">ผู้เริ่มต้นที่ไม่มีพื้นฐาน</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              ไม่ต้องกังวลเรื่องทักษะไอที เพราะเราสอนแบบจับมือทำทีละสเต็ป ภาษาเข้าใจง่าย ตอบทุกข้อสงสัยอย่างเป็นกันเอง
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. Interactive Skill Assessment & Registration Form (เชื่อม Google Form & Email) -->
+    <section id="registration" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-200 relative">
+      <div class="max-w-4xl mx-auto space-y-12">
+        
+        <!-- Section Header -->
+        <div class="text-center space-y-4" data-aos="fade-up">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold font-heading">
+            <i data-lucide="clipboard-edit" class="w-4 h-4"></i>
+            <span>REGISTRATION & 1:1 SKILL ASSESSMENT</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 font-heading">
+            แบบฟอร์มประเมินความต้องการ & <span class="text-shimmer-brand">ลงทะเบียนเรียน</span>
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
+            กรอกข้อมูลสั้นๆ เพื่อให้คุณดาวิดวิเคราะห์แนวทางและเตรียมเครื่องมือ AI ที่ตอบโจทย์งานของคุณที่สุดก่อนเข้าเรียน
+          </p>
+        </div>
+
+        <!-- Registration Form Card -->
+        <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-2xl space-y-8" data-aos="zoom-in" data-aos-duration="800">
+          
+          <!-- Success Status Alert (Hidden by default) -->
+          <div id="form-status-message" class="hidden p-5 rounded-2xl bg-emerald-50 border-2 border-emerald-300 text-emerald-800 space-y-2">
+            <div class="flex items-center gap-2 font-bold text-base font-heading">
+              <i data-lucide="check-circle" class="w-6 h-6 text-emerald-600"></i>
+              <span>ส่งข้อมูลลงทะเบียนของคุณดาวิดเรียบร้อยแล้ว!</span>
+            </div>
+            <p class="text-xs text-emerald-700">
+              ระบบได้บันทึกข้อมูลและแจ้งเตือนไปยังทีมงาน (davidsuksomboriboon@gmail.com) เรียบร้อยแล้วครับ ทางเราจะติดต่อกลับเพื่อยืนยันเวลาเรียนและส่งลิงก์ห้องเรียนให้โดยเร็วที่สุดครับ
+            </p>
+          </div>
+
+          <form id="ai-registration-form" class="space-y-6">
+            
+            <!-- Course Track Selection -->
+            <div class="space-y-2">
+              <label class="block text-xs font-bold text-slate-800 uppercase tracking-wider font-heading">เลือกคอร์สที่สนใจเรียน *</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <label class="p-4 rounded-2xl border-2 border-blue-500 bg-blue-50/40 cursor-pointer flex items-center justify-between hover:bg-blue-50 transition-colors">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="course_track" value="Basic AI (โปร 990.-)" checked class="w-4 h-4 text-blue-600">
+                    <div>
+                      <div class="text-sm font-bold text-slate-900 font-heading">คอร์ส Basic AI</div>
+                      <div class="text-xs text-blue-600 font-semibold">ราคาโปรโมชัน 990.- (จาก 1,990.-)</div>
+                    </div>
+                  </div>
+                  <span class="text-xs font-bold bg-blue-600 text-white px-2 py-0.5 rounded font-heading">ยอดนิยม 🔥</span>
+                </label>
+
+                <label class="p-4 rounded-2xl border border-slate-200 bg-slate-50 cursor-pointer flex items-center justify-between hover:bg-slate-100 transition-colors">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="course_track" value="Advance AI (วางระบบ Workflow)" class="w-4 h-4 text-blue-600">
+                    <div>
+                      <div class="text-sm font-bold text-slate-900 font-heading">คอร์ส Advance AI</div>
+                      <div class="text-xs text-slate-500">วางระบบ Workflow & Automation</div>
+                    </div>
+                  </div>
+                  <span class="text-xs font-bold text-cyan-600 font-heading">สเกลธุรกิจ</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Full Name & Occupation -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="form-fullname" class="block text-xs font-bold text-slate-800 uppercase tracking-wider font-heading">
+                  ชื่อ - นามสกุล *
+                </label>
+                <input type="text" id="form-fullname" required placeholder="เช่น สมชาย ใจดี" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-all">
+              </div>
+
+              <div class="space-y-2">
+                <label for="form-occupation" class="block text-xs font-bold text-slate-800 uppercase tracking-wider font-heading">
+                  อาชีพ / ธุรกิจปัจจุบัน *
+                </label>
+                <input type="text" id="form-occupation" required placeholder="เช่น ขายของออนไลน์, ฟรีแลนซ์, เจ้าของธุรกิจ" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-all">
+              </div>
+            </div>
+
+            <!-- Skill Level Radio -->
+            <div class="space-y-2">
+              <label class="block text-xs font-bold text-slate-800 uppercase tracking-wider font-heading">
+                ระดับความถนัดด้าน AI ของคุณในปัจจุบัน *
+              </label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <label class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer flex items-center gap-3 hover:bg-slate-100 transition-colors">
+                  <input type="radio" name="skill_level" value="เริ่มต้น (ยังไม่เคยใช้ หรือเพิ่งเริ่ม)" checked class="w-4 h-4 text-blue-600">
+                  <span class="text-xs font-semibold text-slate-800">1. เริ่มต้น (มือใหม่)</span>
+                </label>
+                <label class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer flex items-center gap-3 hover:bg-slate-100 transition-colors">
+                  <input type="radio" name="skill_level" value="ปานกลาง (เคยใช้ ChatGPT/Midjourney บ้าง)" class="w-4 h-4 text-blue-600">
+                  <span class="text-xs font-semibold text-slate-800">2. ปานกลาง (พอมีพื้นฐาน)</span>
+                </label>
+                <label class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer flex items-center gap-3 hover:bg-slate-100 transition-colors">
+                  <input type="radio" name="skill_level" value="มืออาชีพ (ใช้ประจำ ต้องการระบบ Automation)" class="w-4 h-4 text-blue-600">
+                  <span class="text-xs font-semibold text-slate-800">3. มืออาชีพ (เน้นสเกล)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Experience & Learning Goals -->
+            <div class="space-y-2">
+              <label for="form-experience" class="block text-xs font-bold text-slate-800 uppercase tracking-wider font-heading">
+                เคยใช้ AI ทำอะไรมาบ้าง? (ถ้ามี)
+              </label>
+              <textarea id="form-experience" rows="2" placeholder="เช่น เคยลองใช้ ChatGPT ช่วยเขียนโพสต์, เคยเจนรูปใน Midjourney แต่ยังเขียน Prompt ไม่เก่ง" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-all resize-none"></textarea>
+            </div>
+
+            <div class="space-y-2">
+              <label for="form-goal" class="block text-xs font-bold text-slate-800 uppercase tracking-wider font-heading">
+                อยากเรียนรู้ AI ด้านไหน และจะเอาไปใช้ทำอะไรกับงานตอนนี้? *
+              </label>
+              <textarea id="form-goal" rows="3" required placeholder="เช่น อยากทำวิดีโอโฆษณายิงแอด TikTok สินค้าความงาม, อยากทำรูปภาพกราฟิกลงเพจวันละ 3 โพสต์, อยากให้ AI สรุปเอกสารและตอบแชทลูกค้า" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-all resize-none"></textarea>
+            </div>
+
+            <!-- Contact Channels -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="form-phone" class="block text-xs font-bold text-slate-800 uppercase tracking-wider font-heading">
+                  เบอร์โทรศัพท์ติดต่อ *
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                  </span>
+                  <input type="tel" id="form-phone" required placeholder="08x-xxx-xxxx" class="w-full pl-10 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-all">
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label for="form-lineid" class="block text-xs font-bold text-slate-800 uppercase tracking-wider font-heading">
+                  LINE ID สำหรับติดต่อกลับ *
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                    <img src="assets/images/line-logo.svg" alt="Line" class="w-4 h-4 object-contain">
+                  </span>
+                  <input type="text" id="form-lineid" required placeholder="เช่น your_line_id" class="w-full pl-10 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-all">
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4">
+              <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 text-white font-bold text-base transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.01] flex items-center justify-center gap-2 font-heading">
+                <i data-lucide="send" class="w-5 h-5"></i>
+                <span>ยืนยันการส่งข้อมูลประเมินทักษะ & จองคอร์ส</span>
+              </button>
+              <p class="text-center text-[11px] text-slate-500 mt-2">
+                🔒 ข้อมูลของคุณจะถูกส่งตรงไปยังอีเมล davidsuksomboriboon@gmail.com และเก็บรักษาเป็นความลับ 100%
+              </p>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. Call To Action & Powerful Quote (ปิดจบด้วยคำคมกระตุกคิด) -->
+    <section id="closing-cta-segment" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 via-brand-navy to-slate-950 text-white relative overflow-hidden">
+      <!-- Background Halo -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div class="max-w-4xl mx-auto text-center space-y-10 relative z-10" data-aos="zoom-in" data-aos-duration="900">
+        
+        <div class="w-16 h-16 rounded-2xl bg-white/10 text-cyan-400 mx-auto flex items-center justify-center backdrop-blur-md border border-white/10 animate-float-gentle">
+          <i data-lucide="quote" class="w-8 h-8"></i>
+        </div>
+
+        <!-- [Call to Action & Powerful Quote] -->
+        <div class="space-y-6">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-white font-heading">
+            "AI จะไม่เข้ามาแทนที่คน... <br>
+            แต่คนที่ <span class="text-shimmer-yellow">ใช้ AI เป็น</span> จะเข้ามาแทนที่คนที่ไม่ใช้ AI อย่างแน่นอน"
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+            อย่าปล่อยให้เทคโนโลยีทิ้งคุณไว้ข้างหลัง เริ่มต้นติดอาวุธทักษะแห่งอนาคต เพื่อให้คุณทำงานได้เร็วขึ้น ฉลาดขึ้น และสร้างโอกาสใหม่ๆ ได้ไม่รู้จบ
+          </p>
+        </div>
+
+        <!-- Action Grid -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <a href="https://lin.ee/xGJFmH9" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#06C755] hover:bg-[#05a847] text-white font-bold text-base transition-all shadow-xl shadow-emerald-500/30 hover:scale-105 flex items-center justify-center gap-3 font-heading">
+            <img src="assets/images/line-logo.svg" alt="Line" class="w-6 h-6 object-contain">
+            <span>ทัก Line OA พูดคุยกับคุณดาวิด</span>
+          </a>
+          <a href="tel:0922565623" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white text-slate-900 hover:bg-slate-100 font-bold text-base transition-all shadow-lg hover:scale-105 flex items-center justify-center gap-3 font-heading">
+            <i data-lucide="phone-call" class="w-5 h-5 text-blue-600"></i>
+            <span>โทรด่วน: 092-2565623</span>
+          </a>
+        </div>
+
+        <!-- Direct Social Links -->
+        <div class="pt-6 border-t border-slate-800 flex flex-wrap items-center justify-center gap-8 text-xs text-slate-400 font-semibold font-heading">
+          <a href="https://www.facebook.com/profile.php?id=61593924237605" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors flex items-center gap-2.5 group">
+            <img src="assets/images/logo.png" alt="AI อะไรก็ได้" class="w-6 h-6 rounded-full object-contain bg-white p-0.5 shadow-md group-hover:scale-110 transition-transform">
+            <span class="font-bold text-white group-hover:text-cyan-400">เพจ Facebook : AI อะไรก็ได้</span>
+          </a>
+          <a href="https://lin.ee/xGJFmH9" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors flex items-center gap-2.5 group">
+            <img src="assets/images/line-logo.svg" alt="Line OA" class="w-6 h-6 object-contain group-hover:scale-110 transition-transform">
+            <span class="font-bold text-white group-hover:text-emerald-400">LINE OA : @692iybwy</span>
+          </a>
+          <span class="flex items-center gap-2">
+            <i data-lucide="mail" class="w-4 h-4 text-cyan-400"></i>
+            <span>davidsuksomboriboon@gmail.com</span>
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 8. Footer -->
+  <footer class="bg-slate-950 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800 relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-center md:text-left">
+      <div class="flex items-center gap-3">
+        <img src="assets/images/logo.png" alt="AI อะไรก็ได้ Logo" class="w-8 h-8 object-contain">
+        <div>
+          <span class="font-bold text-white text-sm block font-heading">AI อะไรก็ได้</span>
+          <span class="text-slate-500 text-[11px]">ใช้ AI ให้เป็น | ทำอะไรก็ได้</span>
+        </div>
+      </div>
+      <div>
+        <p>© 2026 AI อะไรก็ได้ (AI Arai Gor Dai). All Rights Reserved.</p>
+        <p class="text-slate-500 text-[11px] mt-0.5">หลักสูตร Basic AI 990.- & Advance AI • On-site (จ.อุดรธานี) & Online (Google Meet)</p>
+      </div>
+      <div class="flex items-center gap-4 text-slate-300">
+        <a href="https://www.facebook.com/profile.php?id=61593924237605" target="_blank" class="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 transition-colors flex items-center justify-center group" aria-label="เพจ Facebook AI อะไรก็ได้">
+          <img src="assets/images/logo.png" alt="AI อะไรก็ได้" class="w-5 h-5 rounded-full object-contain bg-white p-0.5 group-hover:scale-110 transition-transform">
+        </a>
+        <a href="https://lin.ee/xGJFmH9" target="_blank" class="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 transition-colors flex items-center justify-center group" aria-label="Line OA AI อะไรก็ได้">
+          <img src="assets/images/line-logo.svg" alt="Line" class="w-5 h-5 object-contain group-hover:scale-110 transition-transform">
+        </a>
+        <a href="tel:0922565623" class="p-2 rounded-xl bg-slate-900 hover:text-cyan-400 hover:bg-slate-800 transition-colors" aria-label="Phone">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- HD Video Player Modal (Promote Intro Video) -->
+  <div id="video-modal" class="hidden fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
+    <div class="relative w-full max-w-4xl bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl space-y-4 p-6 sm:p-8 text-white">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div>
+          <h3 class="text-lg font-bold text-white font-heading">แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้</h3>
+          <p class="text-xs text-slate-400 mt-0.5">AI อะไรก็ได้ • Official Video</p>
+        </div>
+        <button id="close-video-modal-btn" class="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors" aria-label="Close Video">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Player Target Container -->
+      <div id="video-container-target" class="aspect-video w-full bg-slate-950 rounded-2xl overflow-hidden flex items-center justify-center"></div>
+    </div>
+  </div>
+
+  <!-- Poster Lightbox Modal (Full Resolution Zoom) -->
+  <div id="poster-modal" class="hidden fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
+    <div class="relative w-full max-w-2xl bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl p-4 sm:p-6 text-white max-h-[92vh] flex flex-col justify-between">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div>
+          <h3 class="text-base font-bold text-white font-heading">โปสเตอร์โปรโมทคอร์ส Basic AI (990.-)</h3>
+          <p class="text-xs text-slate-400">ขนาดความละเอียดสูง (Full HD)</p>
+        </div>
+        <button id="close-poster-btn" class="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="overflow-y-auto flex-grow my-3 rounded-2xl flex items-center justify-center bg-black/50">
+        <img src="assets/images/poster-basic-ai.png" alt="โปสเตอร์ขนาดเต็ม" class="max-h-[70vh] w-auto object-contain rounded-xl shadow-2xl">
+      </div>
+      <div class="pt-3 border-t border-slate-800 flex items-center justify-between">
+        <span class="text-xs text-yellow-400 font-semibold">ราคาโปรโมชัน 990.- (จาก 1,990.-)</span>
+        <a href="#registration" onclick="document.getElementById('poster-modal').classList.add('hidden')" class="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-all font-heading">
+          ลงทะเบียนจองสิทธิ์
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Remotion Pop-up Assistant (50% Die-cut Avatar + Dynamic Speech Bubble) -->
+  <div id="remotion-assistant-widget" class="fixed bottom-0 right-2 sm:right-8 z-40 flex flex-col items-end pointer-events-none transition-all duration-500 opacity-0 translate-y-28">
+    
+    <!-- Speech Bubble (กล่องข้อความตรงปาก) -->
+    <div id="remotion-speech-bubble" class="relative max-w-[240px] sm:max-w-[280px] bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-2xl border-2 border-cyan-400 text-slate-900 pointer-events-auto mb-2 mr-6 sm:mr-10 transition-all">
+      <!-- Speech Arrow pointing towards David's mouth -->
+      <div class="absolute -bottom-2.5 right-7 w-5 h-5 bg-white border-r-2 border-b-2 border-cyan-400 transform rotate-45"></div>
+      
+      <!-- Speech Content with kinetic gradient text effect -->
+      <div class="flex items-start justify-between gap-2 relative z-10">
+        <div class="space-y-1">
+          <div class="flex items-center gap-1.5 text-[10px] font-bold text-blue-600 uppercase tracking-wider font-heading">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+            <span>David AI Assistant</span>
+          </div>
+          <p class="text-xs sm:text-sm font-bold speech-bubble-text leading-snug font-heading">
+            "เว็ปไซต์นี้ก็ใช้ AI ทำให้นะครับ"
+          </p>
+        </div>
+        <button id="close-assistant-btn" class="p-1 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" aria-label="ปิดกล่องข้อความ">
+          <i data-lucide="x" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 50% Die-cut Avatar Character -->
+    <div class="relative w-28 sm:w-40 h-auto pointer-events-auto cursor-pointer group">
+      <img src="assets/images/david-cutout.png" alt="คุณดาวิด AI" class="w-full h-auto object-contain filter drop-shadow-[0_10px_25px_rgba(0,194,255,0.45)] group-hover:scale-105 transition-transform duration-300">
+    </div>
+
+  </div>
+
+  <!-- AOS Animation Library & Custom App Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/app.js?v=20260828_3"></script>
+</body>
+</html>
