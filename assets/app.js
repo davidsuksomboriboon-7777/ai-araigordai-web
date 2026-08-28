@@ -45,20 +45,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Video Player Modal (Promote Intro Video)
+  // 4. Video Player Modal (Promote Intro Video & Basic AI Course Video)
   const playVideoBtn = document.getElementById('play-intro-video-btn');
   const heroVideoBox = document.getElementById('hero-video-trigger-box');
+  const basicCourseVideoBox = document.getElementById('play-basic-course-video-box');
   const videoModal = document.getElementById('video-modal');
   const closeModalBtn = document.getElementById('close-video-modal-btn');
   const videoContainer = document.getElementById('video-container-target');
+  const modalTitle = document.getElementById('modal-video-title');
+  const modalSubtitle = document.getElementById('modal-video-subtitle');
 
-  const openAndPlayVideo = () => {
+  const openAndPlayVideo = (src = 'assets/videos/promote-intro.mp4', title = 'แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้', subtitle = 'AI อะไรก็ได้ • Official Video') => {
     if (!videoModal || !videoContainer) return;
+    if (modalTitle) modalTitle.textContent = title;
+    if (modalSubtitle) modalSubtitle.textContent = subtitle;
+
     videoModal.classList.remove('hidden');
     videoContainer.innerHTML = `
       <video 
         id="active-intro-video-player"
-        src="assets/videos/promote-intro.mp4" 
+        src="${src}" 
         controls 
         autoplay 
         playsinline 
@@ -86,12 +92,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (playVideoBtn) {
     playVideoBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      openAndPlayVideo();
+      openAndPlayVideo('assets/videos/promote-intro.mp4', 'แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้', 'AI อะไรก็ได้ • Official Video');
     });
   }
 
   if (heroVideoBox) {
-    heroVideoBox.addEventListener('click', openAndPlayVideo);
+    heroVideoBox.addEventListener('click', () => {
+      openAndPlayVideo('assets/videos/promote-intro.mp4', 'แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้', 'AI อะไรก็ได้ • Official Video');
+    });
+  }
+
+  if (basicCourseVideoBox) {
+    basicCourseVideoBox.addEventListener('click', () => {
+      openAndPlayVideo('assets/videos/basic-ai-intro.mp4', 'แนะนำ Basic AI ของ AI อะไรก็ได้', 'รายละเอียดและตัวอย่างเนื้อหาคอร์ส Basic AI (990.-)');
+    });
   }
 
   if (closeModalBtn) {

@@ -375,18 +375,51 @@
                 </p>
               </div>
 
-              <!-- Official Course Poster Banner -->
-              <div id="open-poster-btn" class="relative rounded-2xl overflow-hidden border-2 border-blue-200 shadow-md group cursor-pointer bg-slate-100">
-                <img src="assets/images/poster-basic-ai.png" alt="โปสเตอร์โปรโมทคอร์ส Basic AI" class="w-full h-auto max-h-[360px] object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex items-end justify-between p-4">
-                  <span class="text-white text-xs font-semibold flex items-center gap-1.5 bg-blue-600/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow font-heading">
-                    <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
-                    <span>คลิกเพื่อดูโปสเตอร์ขนาดเต็ม</span>
-                  </span>
-                  <span class="text-slate-950 font-bold text-xs bg-yellow-400 px-3 py-1.5 rounded-lg shadow font-heading">
-                    🔥 เหลือเพียง 990.-
-                  </span>
+              <!-- Basic AI Course Intro Video & Poster Media Section -->
+              <div class="space-y-4">
+                
+                <!-- Video Player Box for Basic AI -->
+                <div id="play-basic-course-video-box" class="relative rounded-2xl overflow-hidden border-2 border-cyan-400 shadow-lg group cursor-pointer bg-slate-950 aspect-video flex items-center justify-center card-hover-effect">
+                  <video class="w-full h-full object-cover opacity-85 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500" preload="metadata" muted playsinline poster="assets/images/poster-basic-ai.png">
+                    <source src="assets/videos/basic-ai-intro.mp4" type="video/mp4">
+                  </video>
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-slate-950/40 group-hover:bg-slate-950/20 transition-colors"></div>
+
+                  <!-- Play Button Overlay -->
+                  <button class="absolute z-10 w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 text-white flex items-center justify-center shadow-2xl shadow-cyan-500/60 group-hover:scale-110 transition-all duration-300 animate-glow" aria-label="เล่นคลิป แนะนำ Basic AI ของ AI อะไรก็ได้">
+                    <i data-lucide="play" class="w-8 h-8 fill-current ml-1 text-white"></i>
+                  </button>
+
+                  <!-- Bottom Title Banner -->
+                  <div class="absolute bottom-0 left-0 right-0 p-3.5 sm:p-4 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-transparent z-10 flex items-center justify-between text-white text-xs">
+                    <div class="space-y-0.5">
+                      <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+                        <h4 class="font-bold text-xs sm:text-sm text-white font-heading">แนะนำ Basic AI ของ AI อะไรก็ได้</h4>
+                      </div>
+                      <p class="text-cyan-300 text-[11px]">คลิกเพื่อรับชมคลิปแนะนำเนื้อหาคอร์ส</p>
+                    </div>
+                    <span class="bg-blue-600 font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 shadow-lg border border-blue-400/30 font-heading">
+                      <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
+                      <span>ดูคลิป</span>
+                    </span>
+                  </div>
                 </div>
+
+                <!-- Official Course Poster Banner -->
+                <div id="open-poster-btn" class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-md group cursor-pointer bg-slate-100">
+                  <img src="assets/images/poster-basic-ai.png" alt="โปสเตอร์โปรโมทคอร์ส Basic AI" class="w-full h-auto max-h-[220px] sm:max-h-[260px] object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex items-end justify-between p-3.5">
+                    <span class="text-white text-xs font-semibold flex items-center gap-1.5 bg-blue-600/90 backdrop-blur-sm px-3 py-1 rounded-lg shadow font-heading">
+                      <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                      <span>คลิกเพื่อดูโปสเตอร์ขนาดเต็ม</span>
+                    </span>
+                    <span class="text-slate-950 font-bold text-xs bg-yellow-400 px-3 py-1 rounded-lg shadow font-heading">
+                      🔥 เหลือเพียง 990.-
+                    </span>
+                  </div>
+                </div>
+
               </div>
 
               <!-- Price Box -->
@@ -858,8 +891,8 @@
     <div class="relative w-full max-w-4xl bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl space-y-4 p-6 sm:p-8 text-white">
       <div class="flex items-center justify-between border-b border-slate-800 pb-4">
         <div>
-          <h3 class="text-lg font-bold text-white font-heading">แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้</h3>
-          <p class="text-xs text-slate-400 mt-0.5">AI อะไรก็ได้ • Official Video</p>
+          <h3 id="modal-video-title" class="text-lg font-bold text-white font-heading">แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้</h3>
+          <p id="modal-video-subtitle" class="text-xs text-slate-400 mt-0.5">AI อะไรก็ได้ • Official Video</p>
         </div>
         <button id="close-video-modal-btn" class="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors" aria-label="Close Video">
           <i data-lucide="x" class="w-6 h-6"></i>
