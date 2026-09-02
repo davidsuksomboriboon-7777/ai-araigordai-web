@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ดาวิด สุขสมบริบูรณ์ | Digital Name Card (AI อะไรก็ได้)</title>
+  <meta name="description" content="Digital Name Card - คุณดาวิด สุขสมบริบูรณ์ (David) ผู้ก่อตั้ง AI อะไรก็ได้ & AI Practical Instructor | 6 ใบประกาศ THAi PASSPORT สดช.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo_ai_araigordai.png">
+
+  <!-- Local & Google Fonts: Noto Sans Thai -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- QRCode.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans Thai"', 'system-ui', 'sans-serif'],
+            heading: ['"Noto Sans Thai"', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              cyan: '#00C2FF',
+              sky: '#38BDF8',
+              blue: '#0066FF',
+              deep: '#0047BA',
+              navy: '#0A192F',
+              line: '#06C755',
+              fb: '#1877F2'
+            }
+          },
+          animation: {
+            'spin-slow': 'spin 16s linear infinite',
+            'spin-reverse': 'spinReverse 20s linear infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+            'float': 'float 4s ease-in-out infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-6px)' }
+            },
+            spinReverse: {
+              '0%': { transform: 'rotate(360deg)' },
+              '100%': { transform: 'rotate(0deg)' }
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.85', transform: 'scale(1.03)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @font-face {
+      font-family: 'Noto Sans Thai Local';
+      src: url('assets/fonts/NotoSansThai.ttf') format('truetype');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    * {
+      font-family: 'Noto Sans Thai Local', 'Noto Sans Thai', sans-serif;
+    }
+
+    /* Page Background directly featuring ai_studio_banner_16x9.png */
+    body {
+      background-color: #e6f1fc;
+      background-image: 
+        linear-gradient(180deg, rgba(235, 245, 255, 0.4) 0%, rgba(220, 238, 255, 0.6) 100%),
+        url('assets/images/ai_studio_banner.png');
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+    }
+
+    /* Authentic CI Studio Card with Clean Glass Backdrop */
+    .ci-studio-card {
+      background: rgba(255, 255, 255, 0.86);
+      background-image: 
+        radial-gradient(at 10% 0%, rgba(0, 194, 255, 0.15) 0px, transparent 40%),
+        radial-gradient(at 90% 100%, rgba(0, 102, 255, 0.12) 0px, transparent 45%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.93) 0%, rgba(245, 250, 255, 0.88) 100%);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1.5px solid rgba(0, 194, 255, 0.45);
+      box-shadow: 
+        0 30px 70px -15px rgba(0, 70, 180, 0.22),
+        0 10px 30px -5px rgba(0, 194, 255, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.8),
+        inset 0 2px 4px rgba(255, 255, 255, 1);
+    }
+
+    /* Pill and interactive elements */
+    .ci-pill {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 194, 255, 0.25);
+      box-shadow: 
+        0 4px 12px rgba(0, 50, 150, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.03),
+        inset 0 1px 1px #FFFFFF;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .ci-pill:hover {
+      background: #FFFFFF;
+      border-color: #00C2FF;
+      transform: translateY(-2px);
+      box-shadow: 
+        0 10px 25px -4px rgba(0, 194, 255, 0.3),
+        0 4px 8px -2px rgba(0, 102, 255, 0.15);
+    }
+
+    .brand-gradient-text {
+      background: linear-gradient(135deg, #0047BA 0%, #0077FF 40%, #00C2FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .avatar-video-frame {
+      box-shadow: 
+        0 12px 35px -5px rgba(0, 102, 255, 0.4),
+        0 0 35px rgba(0, 194, 255, 0.5),
+        inset 0 0 25px rgba(0, 194, 255, 0.35);
+    }
+
+    /* Dots pagination */
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 9999px;
+      background-color: #CBD5E1;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .carousel-dot.active {
+      width: 20px;
+      background-color: #0066FF;
+      box-shadow: 0 0 8px rgba(0, 102, 255, 0.5);
+    }
+
+    /* Canvas Particle Background */
+    #particles-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800 flex flex-col justify-center items-center py-6 px-4 sm:px-6 relative">
+
+  <!-- Ambient Light Halos matching Studio CI -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[750px] h-[500px] bg-cyan-400/25 rounded-full blur-[150px] animate-pulse-glow"></div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-blue-500/20 rounded-full blur-[160px]"></div>
+  </div>
+
+  <!-- Mobile Container / Digital Card Frame (ตามธีม CI ai_studio_banner_16x9.png) -->
+  <main class="w-full max-w-md ci-studio-card rounded-[38px] overflow-hidden relative z-10 my-auto">
+    
+    <!-- Canvas for AI Synapse Particles -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Top Action Bar (Share, QR, NFC Status) -->
+    <header class="relative px-6 pt-5 pb-2 flex items-center justify-between z-20">
+      <div class="flex items-center gap-2">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
+        </span>
+        <span class="text-[11px] font-extrabold tracking-wider uppercase text-blue-800 font-heading flex items-center gap-1.5 bg-white/90 px-3 py-1 rounded-full border border-cyan-300 shadow-sm">
+          <i data-lucide="cpu" class="w-3.5 h-3.5 text-cyan-600"></i>
+          <span>AI Digital Card</span>
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <!-- Show QR Modal Button -->
+        <button id="btn-show-qr" class="p-2.5 rounded-2xl ci-pill text-slate-700 hover:text-blue-600" title="สแกน QR Code นามบัตร">
+          <i data-lucide="qr-code" class="w-4 h-4"></i>
+        </button>
+        <!-- Share Card Button -->
+        <button id="btn-share" class="p-2.5 rounded-2xl ci-pill text-slate-700 hover:text-blue-600" title="แชร์นามบัตรนี้">
+          <i data-lucide="share-2" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Profile Header Section with Looping Motion Video Background in Avatar -->
+    <section class="px-6 pt-2 pb-5 text-center relative z-20 flex flex-col items-center">
+      
+      <!-- Brand Logo Badge with Glowing CI Border -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white mb-4 border border-cyan-300 shadow-md shadow-cyan-500/15">
+        <img src="assets/images/logo_ai_araigordai.png" alt="AI อะไรก็ได้ Logo" class="w-5 h-5 object-contain">
+        <span class="text-xs font-bold text-slate-900 font-heading">AI อะไรก็ได้</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
+      </div>
+
+      <!-- Avatar with Multi-layer Cyber HUD Ring & Looping Motion Video Background -->
+      <div class="relative w-36 h-36 mb-4 group cursor-pointer" onclick="openCertModal(0)">
+        
+        <!-- Outer Rotating Cyber Ring 1 -->
+        <div class="absolute -inset-2 rounded-full border-2 border-dashed border-cyan-400/70 animate-spin-slow"></div>
+        <!-- Outer Rotating Cyber Ring 2 (Reverse) -->
+        <div class="absolute -inset-3.5 rounded-full border border-dotted border-blue-500/50 animate-spin-reverse"></div>
+        <!-- Ambient Radial Halo -->
+        <div class="absolute inset-0 rounded-full bg-cyan-400/30 blur-md"></div>
+        
+        <!-- Frame containing Looping Motion Video + Transparent Cutout Avatar -->
+        <div class="relative w-full h-full rounded-full overflow-hidden border-3 border-white avatar-video-frame bg-slate-950 flex items-center justify-center">
+          
+          <!-- Background Looping Video -->
+          <video 
+            src="assets/videos/profile_bg_motion.mp4" 
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+            class="absolute inset-0 w-full h-full object-cover filter brightness-110 contrast-105">
+          </video>
+          
+          <!-- Subtle Dark/Cyan Gradient Overlay on video for crisp contrast -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-cyan-900/20 pointer-events-none"></div>
+
+          <!-- Foreground Transparent Avatar -->
+          <img 
+            src="assets/images/david_avatar_transparent.png" 
+            alt="คุณดาวิด สุขสมบริบูรณ์" 
+            class="relative z-10 w-full h-full object-cover object-top scale-105 group-hover:scale-110 transition-transform duration-300 drop-shadow-2xl">
+        </div>
+
+        <!-- Verified THAi Passport Badge -->
+        <div class="absolute bottom-0 right-1 z-20 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 text-white p-1.5 rounded-full shadow-lg border-2 border-white flex items-center justify-center animate-pulse" title="THAi PASSPORT Certified by สดช.">
+          <i data-lucide="badge-check" class="w-4 h-4 fill-white text-blue-600"></i>
+        </div>
+      </div>
+
+      <!-- Full Name (ดาวิด สุขสมบริบูรณ์) -->
+      <h1 class="text-2xl sm:text-[26px] font-extrabold text-slate-900 font-heading tracking-tight drop-shadow-sm">
+        ดาวิด สุขสมบริบูรณ์
+      </h1>
+      <p class="text-sm font-bold brand-gradient-text font-heading mt-0.5 tracking-wide">
+        David Suksomboriboon
+      </p>
+      
+      <!-- Bio / Background Experience (สถานะปัจจุบันอยู่บรรทัดบน / ประวัติเคยทำงานอยู่บรรทัดล่าง) -->
+      <div class="mt-3 px-4 py-3 rounded-2xl bg-white/95 border border-cyan-300/80 max-w-[340px] shadow-sm space-y-2 text-center">
+        <!-- บรรทัดบน: สถานะปัจจุบัน -->
+        <div class="pb-1.5 border-b border-cyan-100">
+          <p class="text-xs font-bold text-slate-800 leading-snug">
+            ผู้ก่อตั้ง <strong class="text-blue-700 font-extrabold">"AI อะไรก็ได้"</strong>
+          </p>
+          <p class="text-[11px] text-cyan-800 font-semibold mt-0.5">
+            & AI Practical Instructor
+          </p>
+        </div>
+
+        <!-- บรรทัดล่าง: ประวัติที่เคยทำงาน -->
+        <div class="space-y-1">
+          <p class="text-xs text-slate-600 font-medium leading-snug">
+            🎬 เคยทำงานด้าน <span class="text-blue-700 font-bold underline decoration-cyan-500 decoration-2">Digital Marketing</span>
+          </p>
+          <p class="text-xs text-blue-900 font-bold leading-snug">
+            ในส่วน <span class="text-blue-700 bg-cyan-100/90 px-2 py-0.5 rounded-md border border-cyan-300/80">Creative Producer</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Slogan Pill with Glowing CI Gradient -->
+      <div class="mt-3 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 border border-cyan-300 text-blue-800 text-xs font-bold shadow-sm">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-600 animate-spin-slow"></i>
+        <span>"ใช้ AI ให้เป็น | ทำอะไรก็ได้"</span>
+      </div>
+
+    </section>
+
+    <!-- Primary Action: Big "Save Contact" Button (vCard .vcf) with 3D Depth & Shimmer -->
+    <section class="px-6 pb-4 relative z-20">
+      <button id="btn-save-contact" class="relative overflow-hidden w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 hover:from-blue-700 hover:to-cyan-600 text-white font-extrabold text-sm shadow-xl shadow-blue-500/35 hover:shadow-blue-500/50 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2.5 font-heading border border-cyan-200 group">
+        <!-- Button Shimmer Sweep Effect -->
+        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+        
+        <i data-lucide="user-plus" class="w-5 h-5 text-white"></i>
+        <span>บันทึกผู้ติดต่อ (Save to Contacts)</span>
+      </button>
+      <p class="text-center text-[10px] text-slate-600 mt-1.5 font-semibold">
+        ⚡ แตะเพื่อเซฟเบอร์โทร, ไลน์, อีเมล และเพจเข้าสมุดโทรศัพท์มือถือทันที
+      </p>
+    </section>
+
+    <!-- Contact & Social Channels Grid (Facebook Page with Logo, LINE OA, Phone, Web) -->
+    <section class="px-6 pb-5 space-y-2.5 relative z-20">
+      
+      <div class="grid grid-cols-2 gap-2.5">
+        <!-- Call Phone -->
+        <a href="tel:0922565623" class="p-3 rounded-2xl ci-pill flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform border border-blue-200 shadow-sm">
+            <i data-lucide="phone-call" class="w-5 h-5"></i>
+          </div>
+          <div class="text-left">
+            <span class="text-[10px] text-slate-500 block font-medium">โทรศัพท์ติดต่อ</span>
+            <span class="text-xs font-bold text-slate-900 font-heading group-hover:text-blue-600 transition-colors">092-2565623</span>
+          </div>
+        </a>
+
+        <!-- Line OA -->
+        <a href="https://lin.ee/xGJFmH9" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl ci-pill flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center group-hover:scale-110 transition-transform border border-emerald-200 shadow-sm">
+            <img src="assets/images/line-logo.svg" alt="Line" class="w-5 h-5 object-contain">
+          </div>
+          <div class="text-left">
+            <span class="text-[10px] text-emerald-600 block font-medium">LINE OA</span>
+            <span class="text-xs font-bold text-slate-900 font-heading group-hover:text-emerald-600 transition-colors">@692iybwy</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2.5">
+        <!-- Facebook Page (With requested logo AI อะไรก็ได้.png) -->
+        <a href="https://www.facebook.com/profile.php?id=61593924237605" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl ci-pill flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center group-hover:scale-110 transition-transform border border-cyan-200 shadow-sm">
+            <img src="assets/images/logo_ai_araigordai.png" alt="AI อะไรก็ได้ Logo" class="w-full h-full object-contain">
+          </div>
+          <div class="text-left">
+            <span class="text-[10px] text-blue-600 block font-medium">Facebook Page</span>
+            <span class="text-xs font-bold text-slate-900 font-heading group-hover:text-blue-600 transition-colors truncate max-w-[95px]">AI อะไรก็ได้</span>
+          </div>
+        </a>
+
+        <!-- Official Website -->
+        <a href="https://ai-araigordai-official.netlify.app/" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl ci-pill flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center group-hover:scale-110 transition-transform border border-cyan-200 shadow-sm">
+            <i data-lucide="globe" class="w-5 h-5"></i>
+          </div>
+          <div class="text-left">
+            <span class="text-[10px] text-slate-500 block font-medium">เว็บไซต์สถาบัน</span>
+            <span class="text-xs font-bold text-slate-900 font-heading group-hover:text-cyan-600 transition-colors">ดูคอร์สเรียน</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Email Direct -->
+      <a href="mailto:davidsuksomboriboon@gmail.com" class="w-full p-3 rounded-2xl ci-pill flex items-center justify-between text-xs group">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 border border-blue-200">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </div>
+          <span class="text-slate-700 font-semibold truncate max-w-[260px] group-hover:text-blue-600 transition-colors">davidsuksomboriboon@gmail.com</span>
+        </div>
+        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors"></i>
+      </a>
+    </section>
+
+    <!-- THAi PASSPORT Official Certifications Section (Single-Image Swipeable Carousel Slider) -->
+    <section class="px-6 pb-5 relative z-20">
+      <div class="p-4 rounded-3xl bg-white/95 border border-cyan-300/90 space-y-3 shadow-md">
+        
+        <!-- Section Header with Dynamic Counter -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-200 shadow-sm">
+              <i data-lucide="award" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h3 class="text-xs font-bold text-slate-900 font-heading flex items-center gap-1.5">
+                <span>ใบรับรอง THAi PASSPORT</span>
+                <span class="text-[9px] bg-blue-600 text-white px-1.5 py-0.2 rounded font-mono">สดช.</span>
+              </h3>
+              <p class="text-[10px] text-slate-500">กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม</p>
+            </div>
+          </div>
+          
+          <span id="carousel-badge-counter" class="text-[10px] font-bold bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full border border-blue-200 shadow-sm font-mono">1 / 6</span>
+        </div>
+
+        <!-- Single Card Carousel Display with Swipe & Arrows -->
+        <div class="relative pt-1">
+          
+          <!-- Carousel Viewport & Touch Gesture Container -->
+          <div id="carousel-container" class="relative overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 shadow-inner group cursor-pointer" onclick="openCertModal(carouselIndex)">
+            
+            <!-- Sliding Track containing all 6 certificate cards -->
+            <div id="carousel-track" class="flex transition-transform duration-300 ease-out">
+              
+              <!-- Slide 1 -->
+              <div class="min-w-full aspect-[4/3] relative flex items-center justify-center bg-white p-1">
+                <img src="assets/certificates/certificate.jpeg" alt="Generative AI และ ChatGPT" class="w-full h-full object-contain rounded-xl">
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="min-w-full aspect-[4/3] relative flex items-center justify-center bg-white p-1">
+                <img src="assets/certificates/certificate02.jpeg" alt="การปรับตัวสู่การทำงานยุคใหม่กับ AI" class="w-full h-full object-contain rounded-xl">
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="min-w-full aspect-[4/3] relative flex items-center justify-center bg-white p-1">
+                <img src="assets/certificates/certificate03.jpeg" alt="จัดระเบียบงานและสร้างระบบอัตโนมัติด้วย AI" class="w-full h-full object-contain rounded-xl">
+                <span class="absolute top-2 right-2 bg-slate-900 text-[9px] text-cyan-300 px-2 py-0.5 rounded-md font-mono shadow border border-cyan-400/40">OpenAI</span>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="min-w-full aspect-[4/3] relative flex items-center justify-center bg-white p-1">
+                <img src="assets/certificates/certificate04.jpeg" alt="AI Agent การสร้างผู้ช่วยอัจฉริยะเพื่อการทำงาน" class="w-full h-full object-contain rounded-xl">
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="min-w-full aspect-[4/3] relative flex items-center justify-center bg-white p-1">
+                <img src="assets/certificates/certificate05.jpeg" alt="พื้นฐาน AI: เปิดโลก AI สู่โอกาสใหม่ในชีวิตและงาน" class="w-full h-full object-contain rounded-xl">
+                <span class="absolute top-2 right-2 bg-blue-600 text-[9px] text-white px-2 py-0.5 rounded-md font-mono shadow">ใหม่</span>
+              </div>
+
+              <!-- Slide 6 -->
+              <div class="min-w-full aspect-[4/3] relative flex items-center justify-center bg-white p-1">
+                <img src="assets/certificates/certificate06.jpeg" alt="การตลาดออนไลน์ยุค AI: ยิงโฆษณาแม่น ปิดยอดทะลุเป้า" class="w-full h-full object-contain rounded-xl">
+                <span class="absolute top-2 right-2 bg-blue-600 text-[9px] text-white px-2 py-0.5 rounded-md font-mono shadow">ใหม่</span>
+              </div>
+
+            </div>
+
+            <!-- Tap to Zoom Hint Overlay -->
+            <div class="absolute bottom-2 right-2 bg-slate-900/80 text-cyan-300 text-[9px] px-2 py-0.5 rounded-full backdrop-blur-sm flex items-center gap-1 opacity-90 group-hover:opacity-100 transition-opacity">
+              <i data-lucide="maximize-2" class="w-2.5 h-2.5"></i>
+              <span>แตะเพื่อขยาย</span>
+            </div>
+
+          </div>
+
+          <!-- Navigation Arrow: Previous -->
+          <button onclick="prevSlide(event)" class="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border border-cyan-300 text-blue-600 hover:text-cyan-500 shadow-lg flex items-center justify-center transition-all hover:scale-110 active:scale-90 z-30" title="ก่อนหน้า">
+            <i data-lucide="chevron-left" class="w-4 h-4 stroke-[2.5]"></i>
+          </button>
+
+          <!-- Navigation Arrow: Next -->
+          <button onclick="nextSlide(event)" class="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border border-cyan-300 text-blue-600 hover:text-cyan-500 shadow-lg flex items-center justify-center transition-all hover:scale-110 active:scale-90 z-30" title="ถัดไป">
+            <i data-lucide="chevron-right" class="w-4 h-4 stroke-[2.5]"></i>
+          </button>
+
+        </div>
+
+        <!-- Slide Title & Pagination Dots -->
+        <div class="space-y-1.5 text-center pt-1">
+          <p id="carousel-title" class="text-xs font-bold text-slate-800 line-clamp-1">
+            1. Generative AI และ ChatGPT ทำงานอย่างไร
+          </p>
+          
+          <!-- Interactive Indicator Dots -->
+          <div id="carousel-dots" class="flex items-center justify-center gap-1.5 pt-0.5">
+            <span onclick="goToSlide(0)" class="carousel-dot active"></span>
+            <span onclick="goToSlide(1)" class="carousel-dot"></span>
+            <span onclick="goToSlide(2)" class="carousel-dot"></span>
+            <span onclick="goToSlide(3)" class="carousel-dot"></span>
+            <span onclick="goToSlide(4)" class="carousel-dot"></span>
+            <span onclick="goToSlide(5)" class="carousel-dot"></span>
+          </div>
+          
+          <p class="text-[10px] text-slate-400">
+            👈 ปัดซ้าย-ขวา หรือกดลูกศรเพื่อเลื่อนดูใบประกาศ 👉
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Services & Course Tracks -->
+    <section class="px-6 pb-6 space-y-2.5 relative z-20">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs font-extrabold text-slate-800 uppercase tracking-wider font-heading flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-600"></i>
+          <span>หลักสูตร & บริการที่ปรึกษา</span>
+        </h3>
+        <span class="text-[10px] text-blue-600 font-bold bg-white px-2 py-0.5 rounded-md border border-cyan-200 shadow-sm">AI WORKSHOP</span>
+      </div>
+      
+      <div class="space-y-2 text-xs">
+        
+        <!-- Track 1: Basic AI (1:1 & Group) -->
+        <div class="p-3.5 rounded-2xl bg-white/95 border border-blue-200 flex items-center justify-between hover:border-cyan-400 transition-colors shadow-sm">
+          <div class="space-y-0.5">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-500 animate-ping"></span>
+              <span class="text-slate-900 font-bold font-heading">คอร์ส Basic AI (1:1 & Group)</span>
+            </div>
+            <p class="text-[10px] text-slate-500">เรียนรู้การใช้งาน AI สร้างภาพ, วิดีโอ, และเขียน Prompt ตรงสายงาน</p>
+          </div>
+          <span class="text-[11px] font-extrabold text-amber-950 bg-amber-400 px-2.5 py-1 rounded-lg shadow-sm font-heading shrink-0">990.-</span>
+        </div>
+
+        <!-- Track 2: Advance AI -->
+        <div class="p-3.5 rounded-2xl bg-white/95 border border-slate-200 flex items-center justify-between hover:border-blue-400 transition-colors shadow-sm">
+          <div class="space-y-0.5">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+              <span class="text-slate-900 font-bold font-heading">คอร์ส Advance AI</span>
+            </div>
+            <p class="text-[10px] text-slate-500">วางระบบ AI Workflow & Automation ลดงานซ้ำซ้อน 80%</p>
+          </div>
+          <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-1 rounded-lg border border-blue-200 font-mono shrink-0">Automation</span>
+        </div>
+
+        <!-- Track 3: AI Business Consulting -->
+        <div class="p-3.5 rounded-2xl bg-white/95 border border-slate-200 flex items-center justify-between hover:border-emerald-400 transition-colors shadow-sm">
+          <div class="space-y-0.5">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="text-slate-900 font-bold font-heading">ที่ปรึกษาวางระบบ AI Agent สำหรับธุรกิจ</span>
+            </div>
+            <p class="text-[10px] text-slate-500">ออกแบบและติดตั้งระบบผู้ช่วยอัจฉริยะเฉพาะองค์กร</p>
+          </div>
+          <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-lg border border-emerald-200 font-mono shrink-0">Consulting</span>
+        </div>
+
+      </div>
+
+      <!-- Location Badge -->
+      <div class="pt-1.5 flex items-center justify-center gap-2 text-[11px] text-slate-600 font-semibold">
+        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cyan-600"></i>
+        <span>On-site จ.อุดรธานี • Online ทั่วประเทศ (Google Meet)</span>
+      </div>
+    </section>
+
+    <!-- Footer of Card -->
+    <footer class="px-6 py-4 border-t border-cyan-200/80 bg-white/80 text-center relative z-20">
+      <p class="text-[10px] text-slate-500 font-medium">
+        © 2026 AI อะไรก็ได้ • Digital Name Card by David Suksomboriboon
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- 1. QR Code Modal (Scan to Open) -->
+  <div id="modal-qr" class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="w-full max-w-sm bg-white rounded-3xl p-6 border border-cyan-300 text-center space-y-4 shadow-2xl relative">
+      <button onclick="toggleModal('modal-qr')" class="absolute top-4 right-4 p-1.5 rounded-xl bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-1">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-200">
+          <i data-lucide="scan" class="w-3 h-3 text-cyan-600"></i>
+          <span>SCAN TO CONNECT</span>
+        </div>
+        <h3 class="text-base font-extrabold text-slate-900 font-heading">สแกนรับนามบัตรดิจิทัล</h3>
+        <p class="text-xs text-slate-500">ดาวิด สุขสมบริบูรณ์ (AI อะไรก็ได้)</p>
+      </div>
+
+      <!-- QR Canvas Box -->
+      <div class="p-4 bg-white rounded-2xl inline-block shadow-lg border-2 border-slate-100">
+        <div id="qrcode-container" class="w-48 h-48 flex items-center justify-center"></div>
+      </div>
+
+      <p class="text-[11px] text-slate-600 font-medium">
+        เปิดกล้องสมาร์ตโฟนสแกนเพื่อเปิดนามบัตรนี้บนมือถือได้ทันที
+      </p>
+
+      <button onclick="toggleModal('modal-qr')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all shadow-md">
+        ปิดหน้าต่าง
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. Certificate Lightbox Modal (Cycles all 6 certificates) -->
+  <div id="modal-cert" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-white rounded-3xl border border-slate-200 p-5 sm:p-6 text-slate-900 space-y-4 shadow-2xl relative max-h-[95vh] flex flex-col justify-between">
+      
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-bold bg-blue-600 text-white px-2 py-0.5 rounded font-mono uppercase">THAi PASSPORT</span>
+            <span class="text-xs text-slate-500">สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ</span>
+          </div>
+          <h3 id="cert-title" class="text-sm sm:text-base font-extrabold text-slate-900 font-heading">
+            ใบรับรองคุณวุฒิ
+          </h3>
+        </div>
+        <button onclick="toggleModal('modal-cert')" class="p-2 rounded-xl bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Image Display -->
+      <div class="overflow-y-auto flex-grow my-2 rounded-2xl flex items-center justify-center bg-slate-100 p-2 border border-slate-200">
+        <img id="cert-img" src="" alt="THAi Passport Certificate" class="max-h-[60vh] w-auto object-contain rounded-xl shadow-lg">
+      </div>
+
+      <!-- Navigation & Details -->
+      <div class="pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2">
+          <button onclick="prevCert()" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-blue-700 font-semibold flex items-center gap-1">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            <span class="hidden sm:inline">ก่อนหน้า</span>
+          </button>
+          <button onclick="nextCert()" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-blue-700 font-semibold flex items-center gap-1">
+            <span class="hidden sm:inline">ถัดไป</span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+          <span id="cert-counter" class="text-slate-500 text-xs pl-2 font-mono">1 / 6</span>
+        </div>
+        
+        <a id="cert-download-btn" href="" download class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>ดาวน์โหลดใบรับรอง</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 z-50 bg-slate-900 text-white font-bold text-xs py-2.5 px-5 rounded-full shadow-2xl transition-all duration-300 opacity-0 pointer-events-none transform translate-y-6 flex items-center gap-2 font-heading">
+    <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+    <span id="toast-message">คัดลอกลิงก์นามบัตรแล้ว!</span>
+  </div>
+
+  <!-- Client Script Logic: Swipeable Carousel + Lightbox + Neural Particles -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Data for All 6 Certificates
+    const certificates = [
+      {
+        title: "1. Generative AI และ ChatGPT ทำงานอย่างไร (31 ส.ค. 2569)",
+        src: "assets/certificates/certificate.jpeg"
+      },
+      {
+        title: "2. การปรับตัวสู่การทำงานยุคใหม่กับ AI (31 ส.ค. 2569)",
+        src: "assets/certificates/certificate02.jpeg"
+      },
+      {
+        title: "3. จัดระเบียบงานและสร้างระบบอัตโนมัติด้วย AI (OpenAI Co-certified - 31 ส.ค. 2569)",
+        src: "assets/certificates/certificate03.jpeg"
+      },
+      {
+        title: "4. AI Agent การสร้างผู้ช่วยอัจฉริยะเพื่อการทำงาน (1 ก.ย. 2569)",
+        src: "assets/certificates/certificate04.jpeg"
+      },
+      {
+        title: "5. พื้นฐาน AI: เปิดโลก AI สู่โอกาสใหม่ในชีวิตและงาน (2 ก.ย. 2569)",
+        src: "assets/certificates/certificate05.jpeg"
+      },
+      {
+        title: "6. การตลาดออนไลน์ยุค AI: ยิงโฆษณาแม่น ปิดยอดทะลุเป้า (2 ก.ย. 2569)",
+        src: "assets/certificates/certificate06.jpeg"
+      }
+    ];
+
+    // ==========================================
+    // 1. CAROUSEL SLIDER LOGIC
+    // ==========================================
+    let carouselIndex = 0;
+    const totalSlides = certificates.length;
+
+    function updateCarousel() {
+      const track = document.getElementById('carousel-track');
+      const title = document.getElementById('carousel-title');
+      const counter = document.getElementById('carousel-badge-counter');
+      const dots = document.querySelectorAll('.carousel-dot');
+
+      if (track) {
+        track.style.transform = `translateX(-${carouselIndex * 100}%)`;
+      }
+      if (title) {
+        title.innerText = certificates[carouselIndex].title;
+      }
+      if (counter) {
+        counter.innerText = `${carouselIndex + 1} / ${totalSlides}`;
+      }
+
+      dots.forEach((dot, idx) => {
+        if (idx === carouselIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function nextSlide(e) {
+      if (e) e.stopPropagation();
+      carouselIndex = (carouselIndex + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide(e) {
+      if (e) e.stopPropagation();
+      carouselIndex = (carouselIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    function goToSlide(idx) {
+      carouselIndex = idx;
+      updateCarousel();
+    }
+
+    // Touch Swipe Gesture Support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const carouselContainer = document.getElementById('carousel-container');
+    if (carouselContainer) {
+      carouselContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      carouselContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+    }
+
+    function handleSwipe() {
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }
+
+    // ==========================================
+    // 2. LIGHTBOX MODAL LOGIC
+    // ==========================================
+    let currentCertIndex = 0;
+
+    function openCertModal(index) {
+      currentCertIndex = index;
+      updateCertView();
+      toggleModal('modal-cert', true);
+    }
+
+    function updateCertView() {
+      const cert = certificates[currentCertIndex];
+      document.getElementById('cert-title').innerText = cert.title;
+      document.getElementById('cert-img').src = cert.src;
+      document.getElementById('cert-download-btn').href = cert.src;
+      document.getElementById('cert-counter').innerText = `${currentCertIndex + 1} / ${certificates.length}`;
+    }
+
+    function prevCert() {
+      currentCertIndex = (currentCertIndex - 1 + certificates.length) % certificates.length;
+      updateCertView();
+    }
+
+    function nextCert() {
+      currentCertIndex = (currentCertIndex + 1) % certificates.length;
+      updateCertView();
+    }
+
+    function toggleModal(id, forceOpen = null) {
+      const modal = document.getElementById(id);
+      if (forceOpen === true) {
+        modal.classList.remove('hidden');
+      } else if (forceOpen === false) {
+        modal.classList.add('hidden');
+      } else {
+        modal.classList.toggle('hidden');
+      }
+      lucide.createIcons();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').innerText = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-6');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-6');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2500);
+    }
+
+    // ==========================================
+    // 3. QR & SHARE & VCARD LOGIC
+    // ==========================================
+    window.addEventListener('DOMContentLoaded', () => {
+      const currentUrl = window.location.href || 'https://ai-araigordai-official.netlify.app/';
+      new QRCode(document.getElementById('qrcode-container'), {
+        text: currentUrl,
+        width: 192,
+        height: 192,
+        colorDark : "#0A192F",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+      });
+
+      initNeuralParticles();
+      updateCarousel();
+    });
+
+    document.getElementById('btn-show-qr').addEventListener('click', () => {
+      toggleModal('modal-qr', true);
+    });
+
+    document.getElementById('btn-share').addEventListener('click', async () => {
+      const shareData = {
+        title: 'ดาวิด สุขสมบริบูรณ์ | Digital Name Card',
+        text: 'นามบัตรดิจิทัล คุณดาวิด สุขสมบริบูรณ์ (AI อะไรก็ได้) - ผู้ก่อตั้ง AI อะไรก็ได้ & AI Practical Instructor',
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          console.log('Share dismissed');
+        }
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        showToast('คัดลอกลิงก์นามบัตรลงคลิปบอร์ดแล้ว!');
+      }
+    });
+
+    document.getElementById('btn-save-contact').addEventListener('click', () => {
+      const vcardData = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:Suksomboriboon;David;;;',
+        'FN:ดาวิด สุขสมบริบูรณ์ (AI อะไรก็ได้)',
+        'ORG:AI อะไรก็ได้ (AI Arai Gor Dai)',
+        'TITLE:ผู้ก่อตั้ง AI อะไรก็ได้ & AI Practical Instructor',
+        'TEL;TYPE=CELL,VOICE:0922565623',
+        'EMAIL;TYPE=WORK,INTERNET:davidsuksomboriboon@gmail.com',
+        'URL;TYPE=WORK:https://ai-araigordai-official.netlify.app/',
+        'NOTE:ผู้ก่อตั้ง "AI อะไรก็ได้" & AI Practical Instructor | เคยทำงานด้าน Digital Marketing ในส่วน Creative Producer | ได้รับ 6 ใบประกาศรับรองโดย THAi PASSPORT (สดช. & OpenAI)',
+        'X-SOCIALPROFILE;type=facebook:https://www.facebook.com/profile.php?id=61593924237605',
+        'X-SOCIALPROFILE;type=line:https://lin.ee/xGJFmH9',
+        'END:VCARD'
+      ].join('\r\n');
+
+      const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('download', 'David_Suksomboriboon.vcf');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      showToast('กำลังดาวน์โหลดนามบัตร (.vcf)...');
+    });
+
+    // 4. Interactive AI Neural Network Particles Animation
+    function initNeuralParticles() {
+      const canvas = document.getElementById('particles-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = canvas.offsetWidth;
+      let height = canvas.height = canvas.offsetHeight;
+
+      const particles = [];
+      const particleCount = 26;
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.45,
+          radius: Math.random() * 2 + 1,
+          color: Math.random() > 0.4 ? 'rgba(0, 102, 255, ' : 'rgba(0, 194, 255, '
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color + '0.45)';
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 80) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(0, 102, 255, ${0.12 * (1 - dist / 80)})`;
+              ctx.lineWidth = 0.75;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(render);
+      }
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+      });
+
+      render();
+    }
+  </script>
+</body>
+</html>
