@@ -176,7 +176,31 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
 
       // Compose details for log & confirmation
-      console.log(`[AI Registration] ${fullName} | ${courseTrack} | ${phone} | ${lineId} -> davidsuksomboriboon@gmail.com`);
+      console.log(`[AI Registration] ${fullName} | ${courseTrack} | ${phone} | ${lineId} -> Ai.araigordai@gmail.com`);
+
+      // Dispatch form data to Ai.araigordai@gmail.com via FormSubmit endpoint
+      const payload = {
+        _subject: `[AI อะไรก็ได้] ผู้ลงทะเบียนใหม่: ${fullName} (${courseTrack})`,
+        _template: "table",
+        "ชื่อ-นามสกุล": fullName,
+        "อาชีพ/ธุรกิจปัจจุบัน": occupation || "-",
+        "คอร์สที่เลือกเรียน": courseTrack,
+        "ระดับทักษะ": skillLevel,
+        "ประสบการณ์ AI": aiExperience || "-",
+        "เป้าหมายการเรียน": learningGoal || "-",
+        "เบอร์โทรศัพท์": phone,
+        "LINE ID": lineId || "-",
+        "วันเวลาที่ลงทะเบียน": new Date().toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' })
+      };
+
+      fetch('https://formsubmit.co/ajax/Ai.araigordai@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).catch(err => console.log('Form submission response:', err));
 
       setTimeout(() => {
         submitBtn.disabled = false;
@@ -189,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const lineRedirectUrl = `https://lin.ee/xGJFmH9`;
         setTimeout(() => {
-          if (confirm(`ส่งข้อมูลลงทะเบียนของคุณ ${fullName} ไปยังทีมงานคุณดาวิดเรียบร้อยแล้ว!\n\nต้องการเปิด Line OA เพื่อรับคำปรึกษาและคอนเฟิร์มสิทธิ์ราคาพิเศษ 990.- ทันทีหรือไม่?`)) {
+          if (confirm(`ส่งข้อมูลลงทะเบียนของคุณ ${fullName} ไปยังอีเมล Ai.araigordai@gmail.com เรียบร้อยแล้ว!\n\nต้องการเปิด Line OA เพื่อรับคำปรึกษาและคอนเฟิร์มสิทธิ์ราคาพิเศษ 990.- ทันทีหรือไม่?`)) {
             window.open(lineRedirectUrl, '_blank');
           }
         }, 500);
