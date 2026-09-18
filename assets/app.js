@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const lineRedirectUrl = `https://lin.ee/xGJFmH9`;
         setTimeout(() => {
-          if (confirm(`ส่งข้อมูลลงทะเบียนของคุณ ${fullName} ไปยังอีเมล Ai.araigordai@gmail.com เรียบร้อยแล้ว!\n\nต้องการเปิด Line OA เพื่อรับคำปรึกษาและคอนเฟิร์มสิทธิ์ราคาพิเศษ 990.- ทันทีหรือไม่?`)) {
+          if (confirm(`ส่งข้อมูลของคุณ ${fullName} (${courseTrack}) ไปยังอีเมลทีมงาน Ai.araigordai@gmail.com เรียบร้อยแล้ว!\n\nต้องการเปิด Line OA เพื่อรับคำปรึกษาและพูดคุยรายละเอียดกับคุณดาวิดทันทีหรือไม่?`)) {
             window.open(lineRedirectUrl, '_blank');
           }
         }, 500);
@@ -240,6 +240,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 900);
     });
   }
+
+  // Helper function to dynamically select course track and scroll to form
+  window.selectCourseTrack = function(trackValue) {
+    const radio = document.querySelector(`input[name="course_track"][value="${trackValue}"]`);
+    if (radio) {
+      radio.checked = true;
+      // Trigger visual change if needed
+      radio.dispatchEvent(new Event('change'));
+    }
+    const regSection = document.getElementById('registration');
+    if (regSection) {
+      regSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   // 7. Smooth internal anchor scrolling
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
