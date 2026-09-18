@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (basicCourseVideoBox) {
     basicCourseVideoBox.addEventListener('click', () => {
-      openAndPlayVideo('assets/videos/basic-ai-intro.mp4', 'แนะนำ Basic AI ของ AI อะไรก็ได้', 'รายละเอียดและตัวอย่างเนื้อหาคอร์ส Basic AI (990.-)');
+      openAndPlayVideo('assets/videos/basic-ai-promo-master.mp4', 'วิดีโอโปรโมทคอร์ส Basic AI Master', 'ตัวอย่างเนื้อหาและการใช้ AI ผลิตสื่อจริง • AI อะไรก็ได้');
     });
   }
 
@@ -118,16 +118,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Poster Lightbox Modal
+  // 5. Dynamic Poster Lightbox Modal (Supports multiple posters)
   const posterModal = document.getElementById('poster-modal');
-  const openPosterBtn = document.getElementById('open-poster-btn');
   const closePosterBtn = document.getElementById('close-poster-btn');
+  const modalPosterImg = document.getElementById('modal-poster-img');
+  const modalPosterTitle = document.getElementById('modal-poster-title');
+  const modalPosterSubtitle = document.getElementById('modal-poster-subtitle');
+  const modalPosterBadge = document.getElementById('modal-poster-badge');
 
-  if (openPosterBtn && posterModal && closePosterBtn) {
-    openPosterBtn.addEventListener('click', () => {
-      posterModal.classList.remove('hidden');
+  const openPosterModal = (src, title, subtitle, badge) => {
+    if (!posterModal) return;
+    if (modalPosterImg && src) modalPosterImg.src = src;
+    if (modalPosterTitle && title) modalPosterTitle.textContent = title;
+    if (modalPosterSubtitle && subtitle) modalPosterSubtitle.textContent = subtitle;
+    if (modalPosterBadge && badge) modalPosterBadge.textContent = badge;
+    posterModal.classList.remove('hidden');
+  };
+
+  document.querySelectorAll('.poster-trigger-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const src = card.getAttribute('data-poster-src') || 'assets/images/poster-basic-ai.png';
+      const title = card.getAttribute('data-poster-title') || 'โปสเตอร์ AI อะไรก็ได้';
+      const sub = card.getAttribute('data-poster-sub') || 'ขนาดความละเอียดสูง';
+      const badge = card.getAttribute('data-poster-src')?.includes('basic') ? 'ราคาโปรโมชัน 990.- (จาก 1,990.-)' : 'AI Media Production';
+      openPosterModal(src, title, sub, badge);
     });
+  });
 
+  if (closePosterBtn && posterModal) {
     closePosterBtn.addEventListener('click', () => {
       posterModal.classList.add('hidden');
     });
