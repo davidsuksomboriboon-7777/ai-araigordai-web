@@ -45,10 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Video Player Modal (Promote Intro Video & Basic AI Course Video)
+  // 4. Video Player Modal (Promote Intro Video, Basic AI Course Video, Student Showcase, Studio TikTok)
   const playVideoBtn = document.getElementById('play-intro-video-btn');
   const heroVideoBox = document.getElementById('hero-video-trigger-box');
   const basicCourseVideoBox = document.getElementById('play-basic-course-video-box');
+  const studentVideoBox = document.getElementById('play-student-video-box');
+  const studioTiktokBox = document.getElementById('play-studio-tiktok-box');
   const videoModal = document.getElementById('video-modal');
   const closeModalBtn = document.getElementById('close-video-modal-btn');
   const videoContainer = document.getElementById('video-container-target');
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         controls 
         autoplay 
         playsinline 
-        class="w-full h-full rounded-2xl object-contain bg-slate-950 shadow-2xl focus:outline-none">
+        class="w-full h-full max-h-[75vh] rounded-2xl object-contain bg-slate-950 shadow-2xl focus:outline-none">
         เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ HTML5
       </video>
     `;
@@ -105,6 +107,18 @@ document.addEventListener('DOMContentLoaded', () => {
   if (basicCourseVideoBox) {
     basicCourseVideoBox.addEventListener('click', () => {
       openAndPlayVideo('assets/videos/basic-ai-promo-master.mp4', 'วิดีโอโปรโมทคอร์ส Basic AI Master', 'ตัวอย่างเนื้อหาและการใช้ AI ผลิตสื่อจริง • AI อะไรก็ได้');
+    });
+  }
+
+  if (studentVideoBox) {
+    studentVideoBox.addEventListener('click', () => {
+      openAndPlayVideo('assets/videos/student-work-namprik.mp4', 'ตัวอย่างโปรโมทสินค้า น้ำพริกปลาย่าง (ผลงานน้องชมพู่)', 'ผลงานนักเรียนจริงจากการเรียนคอร์ส Basic AI (990.-) • AI อะไรก็ได้');
+    });
+  }
+
+  if (studioTiktokBox) {
+    studioTiktokBox.addEventListener('click', () => {
+      openAndPlayVideo('assets/videos/studio-tiktok-showcase.mp4', 'ตย.คลิปแนวปักตระกร้า ขายของ (TikTok & Reels)', 'ตัวอย่างงานวิดีโอ AI สำหรับปักตระกร้าและโปรโมทสินค้า • AI อะไรก็ได้ Studio');
     });
   }
 

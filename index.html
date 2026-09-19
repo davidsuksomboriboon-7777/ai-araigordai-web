@@ -453,6 +453,60 @@
                   </div>
                 </div>
 
+                <!-- Student Showcase Card (ตย.ผลงานนักเรียนในคอร์ส Basic AI - ผลงานน้องชมพู่) -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-500/10 via-blue-50/80 to-cyan-50 border-2 border-amber-400/50 space-y-3.5 shadow-sm">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <span class="w-7 h-7 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center text-sm font-black shadow-sm">🎓</span>
+                      <div>
+                        <h4 class="text-xs sm:text-sm font-bold text-slate-900 font-heading">ตย.ผลงานนักเรียนในคอร์ส Basic AI</h4>
+                        <p class="text-[11px] text-slate-600 font-medium">ผลงานน้องชมพู่ : โปรโมทสินค้า "น้ำพริกปลาย่าง"</p>
+                      </div>
+                    </div>
+                    <span class="text-[10px] font-bold bg-amber-400 text-slate-950 px-2.5 py-1 rounded-full font-heading uppercase tracking-wide shadow-sm">
+                      STUDENT WORK
+                    </span>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-3">
+                    <!-- Image Showcase Item (Click to Lightbox Zoom) -->
+                    <div class="poster-trigger-card relative rounded-xl overflow-hidden border border-slate-200 shadow-sm group cursor-pointer bg-slate-900 aspect-[9/12] sm:aspect-square flex items-center justify-center card-hover-effect" data-poster-src="assets/images/student-work-namprik.jpg" data-poster-title="รูปโปรโมทสินค้า น้ำพริกปลาย่าง (ผลงานน้องชมพู่)" data-poster-sub="ผลงานจริงจากการเรียนคอร์ส Basic AI • ออกแบบภาพสินค้าด้วย AI">
+                      <img src="assets/images/student-work-namprik.jpg" alt="รูปโปรโมทสินค้า น้ำพริกปลาย่าง - ผลงานน้องชมพู่" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex flex-col justify-end p-2.5">
+                        <span class="text-[11px] text-white font-bold font-heading flex items-center gap-1 drop-shadow">
+                          <i data-lucide="image" class="w-3.5 h-3.5 text-cyan-400"></i>
+                          <span>รูปโปรโมทสินค้า</span>
+                        </span>
+                        <span class="text-[10px] text-cyan-300 font-medium">คลิกดูรูปขนาดเต็ม</span>
+                      </div>
+                    </div>
+
+                    <!-- Video Showcase Item (Click to Open Video Modal) -->
+                    <div id="play-student-video-box" class="relative rounded-xl overflow-hidden border border-amber-400/60 shadow-sm group cursor-pointer bg-slate-950 aspect-[9/12] sm:aspect-square flex items-center justify-center card-hover-effect">
+                      <img src="assets/images/cover-student-namprik.jpg" alt="วิดีโอโปรโมทสินค้า น้ำพริกปลาย่าง - ผลงานน้องชมพู่" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-slate-950/40 group-hover:bg-slate-950/20 transition-colors"></div>
+                      
+                      <!-- Play Button -->
+                      <button class="absolute z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-amber-500 to-red-500 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300" aria-label="เล่นคลิป วิดีโอโปรโมทสินค้า น้ำพริกปลาย่าง - ผลงานน้องชมพู่">
+                        <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5 text-white"></i>
+                      </button>
+
+                      <div class="absolute inset-0 flex flex-col justify-end p-2.5 pointer-events-none">
+                        <span class="text-[11px] text-white font-bold font-heading flex items-center gap-1 drop-shadow">
+                          <i data-lucide="video" class="w-3.5 h-3.5 text-amber-400"></i>
+                          <span>วิดีโอโปรโมทสินค้า</span>
+                        </span>
+                        <span class="text-[10px] text-amber-300 font-medium">คลิกเปิดดูคลิป (10s)</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-center gap-2 text-[11px] text-slate-600 font-medium bg-white/70 p-2 rounded-xl border border-amber-200/60">
+                    <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i>
+                    <span>สร้างภาพนิ่ง เจนวิดีโอ และใส่เสียงพากย์ได้จริงตั้งแต่ครั้งแรกที่เรียน</span>
+                  </div>
+                </div>
+
               </div>
 
               <!-- Price Box -->
@@ -636,8 +690,10 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
-          <!-- Left Column: Poster Visual Card with Lightbox Zoom -->
-          <div class="lg:col-span-5 flex justify-center" data-aos="fade-right" data-aos-duration="800">
+          <!-- Left Column: Poster Visual Card & TikTok Showcase Card -->
+          <div class="lg:col-span-5 space-y-6 flex flex-col items-center" data-aos="fade-right" data-aos-duration="800">
+            
+            <!-- Main Poster Visual Card with Lightbox Zoom -->
             <div class="poster-trigger-card relative rounded-3xl overflow-hidden border-2 border-cyan-400/40 shadow-2xl shadow-cyan-500/10 group cursor-pointer bg-slate-950 card-hover-effect max-w-md w-full" data-poster-src="assets/images/poster-ai-media-production.png" data-poster-title="โปสเตอร์ AI อะไรก็ได้ Studio (Package 699.-)" data-poster-sub="Package ผลิตสื่อโปรโมทธุรกิจ, สินค้า, แบรนด์, ร้านอาหาร ด้วย AI">
               <img src="assets/images/poster-ai-media-production.png" alt="โปสเตอร์ AI อะไรก็ได้ Studio" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex items-end justify-between p-4 sm:p-5">
@@ -650,6 +706,41 @@
                 </span>
               </div>
             </div>
+
+            <!-- TikTok / Reels Showcase Box (ตย.คลิปแนวปักตระกร้า ขายของ) -->
+            <div id="play-studio-tiktok-box" class="relative rounded-3xl overflow-hidden border-2 border-cyan-400/50 shadow-xl group cursor-pointer bg-slate-950 max-w-md w-full card-hover-effect aspect-[16/10] sm:aspect-video flex items-center justify-center">
+              <img src="assets/images/cover-studio-tiktok.jpg" alt="ตย.คลิปแนวปักตระกร้า ขายของ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-slate-950/50 group-hover:bg-slate-950/20 transition-colors"></div>
+
+              <!-- Top Status Badge -->
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between text-white text-xs z-10">
+                <div class="flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg border border-cyan-400/30">
+                  <i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  <span class="text-[11px] font-bold text-cyan-300 font-heading">คลิปแนวปักตระกร้า</span>
+                </div>
+                <span class="text-[10px] font-bold bg-gradient-to-r from-red-500 to-pink-500 text-white px-2 py-0.5 rounded-md shadow uppercase font-heading">
+                  TIKTOK & REELS SHOWCASE
+                </span>
+              </div>
+
+              <!-- Play Button Overlay -->
+              <button class="absolute z-10 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white flex items-center justify-center shadow-2xl shadow-cyan-500/60 group-hover:scale-110 transition-all duration-300 animate-glow" aria-label="เล่นคลิป ตัวอย่างคลิปแนวปักตระกร้า ขายของ">
+                <i data-lucide="play" class="w-7 h-7 sm:w-8 sm:h-8 fill-current ml-1 text-white"></i>
+              </button>
+
+              <!-- Bottom Info Banner -->
+              <div class="absolute bottom-0 left-0 right-0 p-3.5 sm:p-4 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-transparent z-10 flex items-center justify-between text-white">
+                <div class="space-y-0.5">
+                  <h4 class="font-bold text-xs sm:text-sm text-white font-heading">ตย.คลิปแนวปักตระกร้า ขายของ</h4>
+                  <p class="text-cyan-300 text-[11px]">คลิกเพื่อรับชมคลิปตัวอย่างความยาว 20 วินาที</p>
+                </div>
+                <span class="bg-cyan-600/90 font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 shadow-lg border border-cyan-400/40 font-heading">
+                  <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
+                  <span>ดูคลิป</span>
+                </span>
+              </div>
+            </div>
+
           </div>
 
           <!-- Right Column: Package Details, Add-on & Extra Services -->
