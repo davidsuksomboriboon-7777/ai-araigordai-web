@@ -114,13 +114,10 @@
       // 6. Setup Event Listeners
       this.setupEventListeners();
 
-      // 7. Inject 3D HUD Controller
-      this.injectHUDController();
-
-      // 8. Setup 3D Card Tilt Physics
+      // 7. Setup 3D Card Tilt Physics
       this.setupCardTiltPhysics();
 
-      // 9. Start Animation Loop
+      // 8. Start Animation Loop
       this.animate = this.animate.bind(this);
       requestAnimationFrame(this.animate);
 
@@ -549,118 +546,8 @@
     }
 
     injectHUDController() {
-      // Check if already injected
-      if (document.getElementById('three-hud-controller')) return;
-
-      const hud = document.createElement('div');
-      hud.id = 'three-hud-controller';
-      hud.className = 'fixed bottom-4 left-4 z-40 flex flex-col items-start gap-2 select-none font-heading transition-all duration-300';
-
-      hud.innerHTML = `
-        <!-- Floating 3D AI HUD Pill Widget -->
-        <div id="three-hud-panel" class="hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-cyan-400/30 text-white text-xs shadow-2xl shadow-cyan-500/20">
-          <div class="flex items-center gap-1.5 text-cyan-400 font-bold">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-            <span>3D Neural AI</span>
-          </div>
-
-          <div class="h-3 w-[1px] bg-slate-700"></div>
-
-          <!-- Mode Switcher -->
-          <div class="flex items-center gap-1">
-            <button id="three-mode-core" class="px-2 py-0.5 rounded-lg text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 hover:bg-cyan-500 hover:text-slate-950 transition-all">
-              Core
-            </button>
-            <button id="three-mode-matrix" class="px-2 py-0.5 rounded-lg text-[10px] font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition-all">
-              Matrix
-            </button>
-            <button id="three-mode-cosmic" class="px-2 py-0.5 rounded-lg text-[10px] font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition-all">
-              Cosmic
-            </button>
-          </div>
-
-          <div class="h-3 w-[1px] bg-slate-700"></div>
-
-          <!-- Pulse Trigger Button -->
-          <button id="three-hud-pulse-btn" class="px-2.5 py-0.5 rounded-lg text-[10px] font-bold bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow flex items-center gap-1 transition-all active:scale-95" title="ส่งคลื่นพลังงาน AI">
-            <span>💥 Pulse</span>
-          </button>
-
-          <!-- Toggle Minimize -->
-          <button id="three-hud-minimize-btn" class="p-1 rounded-lg text-slate-400 hover:text-white transition-colors" title="ย่อหน้าต่าง">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
-          </button>
-        </div>
-
-        <!-- Mini Floating Trigger Pill -->
-        <button id="three-hud-pill-btn" class="sm:hidden px-2.5 py-1.5 rounded-xl bg-slate-900/80 backdrop-blur-md border border-cyan-400/40 text-cyan-400 text-[11px] font-bold shadow-lg flex items-center gap-1.5 active:scale-95">
-          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-          <span>3D AI</span>
-        </button>
-      `;
-
-      document.body.appendChild(hud);
-
-      // Bind HUD Events
-      const pulseBtn = document.getElementById('three-hud-pulse-btn');
-      if (pulseBtn) {
-        pulseBtn.addEventListener('click', () => this.triggerEnergyPulse());
-      }
-
-      const modeCore = document.getElementById('three-mode-core');
-      const modeMatrix = document.getElementById('three-mode-matrix');
-      const modeCosmic = document.getElementById('three-mode-cosmic');
-
-      const updateModeBtnStyles = (activeBtn) => {
-        [modeCore, modeMatrix, modeCosmic].forEach(btn => {
-          if (btn) {
-            btn.className = 'px-2 py-0.5 rounded-lg text-[10px] font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition-all';
-          }
-        });
-        if (activeBtn) {
-          activeBtn.className = 'px-2 py-0.5 rounded-lg text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 hover:bg-cyan-500 hover:text-slate-950 transition-all';
-        }
-      };
-
-      if (modeCore) {
-        modeCore.addEventListener('click', () => {
-          this.setMode('quantum');
-          updateModeBtnStyles(modeCore);
-        });
-      }
-      if (modeMatrix) {
-        modeMatrix.addEventListener('click', () => {
-          this.setMode('matrix');
-          updateModeBtnStyles(modeMatrix);
-        });
-      }
-      if (modeCosmic) {
-        modeCosmic.addEventListener('click', () => {
-          this.setMode('constellation');
-          updateModeBtnStyles(modeCosmic);
-        });
-      }
-
-      // Minimize / Expand logic
-      const panel = document.getElementById('three-hud-panel');
-      const minBtn = document.getElementById('three-hud-minimize-btn');
-      const pillBtn = document.getElementById('three-hud-pill-btn');
-
-      if (minBtn && panel && pillBtn) {
-        minBtn.addEventListener('click', () => {
-          panel.classList.add('hidden');
-          pillBtn.classList.remove('sm:hidden');
-        });
-
-        pillBtn.addEventListener('click', () => {
-          if (panel.classList.contains('hidden')) {
-            panel.classList.remove('hidden');
-            pillBtn.classList.add('sm:hidden');
-          } else {
-            this.triggerEnergyPulse();
-          }
-        });
-      }
+      // HUD controller disabled per user request
+      return;
     }
 
     animate() {

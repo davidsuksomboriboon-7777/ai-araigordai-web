@@ -306,7 +306,7 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-title, button, .btn {
 }
 
 #three-hud-controller {
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35));
+  display: none !important;
 }
 
 
