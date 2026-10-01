@@ -170,45 +170,45 @@
       this.coreGroup = new THREE.Group();
       
       // Position core towards the right/center on desktop to complement hero text
-      const initialX = this.isMobile ? 0 : 12;
-      const initialY = this.isMobile ? 3 : 2;
-      this.coreGroup.position.set(initialX, initialY, -2);
-      this.coreGroup.scale.setScalar(this.coreBaseScale);
+      const initialX = this.isMobile ? 0 : 13.5;
+      const initialY = this.isMobile ? 2.5 : 3.0;
+      this.coreGroup.position.set(initialX, initialY, -1.5);
+      this.coreGroup.scale.setScalar(this.coreBaseScale * 1.1);
 
       // 1. Inner Luminous Icosahedron Core
-      const innerGeo = new THREE.IcosahedronGeometry(2.8, 1);
+      const innerGeo = new THREE.IcosahedronGeometry(3.0, 1);
       const innerMat = new THREE.MeshStandardMaterial({
         color: 0x00c2ff,
-        emissive: 0x0052cc,
-        emissiveIntensity: 0.65,
+        emissive: 0x0088ff,
+        emissiveIntensity: 0.85,
         wireframe: true,
         roughness: 0.2,
         metalness: 0.8,
         transparent: true,
-        opacity: 0.85,
+        opacity: 0.9,
         blending: THREE.AdditiveBlending
       });
       this.innerCore = new THREE.Mesh(innerGeo, innerMat);
       this.coreGroup.add(this.innerCore);
 
       // 2. Inner Glowing Core Sphere
-      const sphereGeo = new THREE.SphereGeometry(1.6, 24, 24);
+      const sphereGeo = new THREE.SphereGeometry(1.8, 24, 24);
       const sphereMat = new THREE.MeshBasicMaterial({
         color: 0x00e1ff,
         transparent: true,
-        opacity: 0.45,
+        opacity: 0.55,
         blending: THREE.AdditiveBlending
       });
       this.centerOrb = new THREE.Mesh(sphereGeo, sphereMat);
       this.coreGroup.add(this.centerOrb);
 
       // 3. Outer Synaptic Lattice Shell
-      const outerGeo = new THREE.IcosahedronGeometry(4.2, 2);
+      const outerGeo = new THREE.IcosahedronGeometry(4.5, 2);
       const outerMat = new THREE.MeshBasicMaterial({
         color: 0x0088ff,
         wireframe: true,
         transparent: true,
-        opacity: 0.25,
+        opacity: 0.35,
         blending: THREE.AdditiveBlending
       });
       this.outerCore = new THREE.Mesh(outerGeo, outerMat);
@@ -221,7 +221,7 @@
       
       const vertexMat = new THREE.PointsMaterial({
         color: 0xffffff,
-        size: 0.35,
+        size: 0.45,
         map: this.particleTexture,
         transparent: true,
         blending: THREE.AdditiveBlending,
@@ -236,17 +236,17 @@
     buildGyroRings() {
       // 3 Concentric Gyroscope Rings (Quantum AI Processor)
       const ringConfigs = [
-        { radius: 5.6, tube: 0.04, color: 0x00c2ff, rotSpeed: { x: 0.008, y: 0.012, z: 0.005 }, rot: [Math.PI / 4, 0, 0] },
-        { radius: 6.8, tube: 0.035, color: 0x0088ff, rotSpeed: { x: -0.01, y: 0.007, z: 0.009 }, rot: [0, Math.PI / 3, 0] },
-        { radius: 8.0, tube: 0.03, color: 0xfacc15, rotSpeed: { x: 0.006, y: -0.011, z: -0.007 }, rot: [Math.PI / 6, 0, Math.PI / 4] }
+        { radius: 6.2, tube: 0.055, color: 0x00c2ff, rotSpeed: { x: 0.008, y: 0.012, z: 0.005 }, rot: [Math.PI / 4, 0, 0] },
+        { radius: 7.8, tube: 0.048, color: 0x0088ff, rotSpeed: { x: -0.01, y: 0.007, z: 0.009 }, rot: [0, Math.PI / 3, 0] },
+        { radius: 9.4, tube: 0.042, color: 0xfacc15, rotSpeed: { x: 0.006, y: -0.011, z: -0.007 }, rot: [Math.PI / 6, 0, Math.PI / 4] }
       ];
 
       ringConfigs.forEach((cfg) => {
-        const geo = new THREE.TorusGeometry(cfg.radius, cfg.tube, 16, 90);
+        const geo = new THREE.TorusGeometry(cfg.radius, cfg.tube, 16, 100);
         const mat = new THREE.MeshBasicMaterial({
           color: cfg.color,
           transparent: true,
-          opacity: 0.55,
+          opacity: 0.65,
           blending: THREE.AdditiveBlending
         });
         const ring = new THREE.Mesh(geo, mat);
