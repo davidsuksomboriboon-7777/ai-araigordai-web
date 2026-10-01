@@ -277,4 +277,37 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-title, button, .btn {
   animation: textGlowShimmer 4s ease infinite;
 }
 
+/* --- 10. Three.js 3D Neural Engine Styles --- */
+#three-ai-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+  transition: opacity 0.8s ease;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+.card-3d-interactive {
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.card-3d-interactive:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 194, 255, 0.25), 0 0 0 1px rgba(0, 194, 255, 0.4);
+}
+
+#three-hud-controller {
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35));
+}
+
+
 
