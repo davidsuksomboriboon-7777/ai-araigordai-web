@@ -154,7 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const src = card.getAttribute('data-poster-src') || 'assets/images/poster-basic-ai.png';
       const title = card.getAttribute('data-poster-title') || 'โปสเตอร์ AI อะไรก็ได้';
       const sub = card.getAttribute('data-poster-sub') || 'ขนาดความละเอียดสูง';
-      const badge = card.getAttribute('data-poster-src')?.includes('basic') ? 'ราคาโปรโมชัน 990.- (จาก 1,990.-)' : 'AI Media Production';
+      const badge = card.getAttribute('data-poster-badge') || (
+        src.includes('business') ? 'ราคาพิเศษ 1,290.- (จาก 2,990.-)' :
+        src.includes('basic') ? 'ราคาโปรโมชัน 990.- (จาก 1,990.-)' :
+        src.includes('student') ? 'ผลงานจริงจากนักเรียน' :
+        'AI Media Production'
+      );
       openPosterModal(src, title, sub, badge);
     });
   });
