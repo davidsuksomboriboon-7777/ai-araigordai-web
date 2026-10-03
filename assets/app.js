@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTitle = document.getElementById('modal-video-title');
   const modalSubtitle = document.getElementById('modal-video-subtitle');
 
-  const openAndPlayVideo = (src = 'assets/videos/promote-intro.mp4', title = 'แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้', subtitle = 'AI อะไรก็ได้ • Official Video') => {
+  const openAndPlayVideo = (src = 'assets/videos/company-profile.mp4', title = 'คลิปแนะนำ AI อะไรก็ได้', subtitle = 'AI อะไรก็ได้ • Official Video') => {
     if (!videoModal || !videoContainer) return;
     if (modalTitle) modalTitle.textContent = title;
     if (modalSubtitle) modalSubtitle.textContent = subtitle;
@@ -94,13 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (playVideoBtn) {
     playVideoBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      openAndPlayVideo('assets/videos/promote-intro.mp4', 'แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้', 'AI อะไรก็ได้ • Official Video');
+      openAndPlayVideo('assets/videos/company-profile.mp4', 'คลิปแนะนำ AI อะไรก็ได้', 'AI อะไรก็ได้ • Official Video');
     });
   }
 
   if (heroVideoBox) {
     heroVideoBox.addEventListener('click', () => {
-      openAndPlayVideo('assets/videos/promote-intro.mp4', 'แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้', 'AI อะไรก็ได้ • Official Video');
+      openAndPlayVideo('assets/videos/company-profile.mp4', 'คลิปแนะนำ AI อะไรก็ได้', 'AI อะไรก็ได้ • Official Video');
     });
   }
 

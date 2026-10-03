@@ -78,12 +78,16 @@
       </a>
 
       <!-- Desktop Navigation Menu -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-700">
+      <nav class="hidden md:flex items-center gap-4 lg:gap-5 text-sm font-semibold text-slate-700">
         <a href="#hero" class="hover:text-blue-600 transition-colors">หน้าแรก</a>
-        <a href="#instructor" class="hover:text-blue-600 transition-colors">ผู้สอน (David)</a>
+        <a href="#instructor" class="hover:text-blue-600 transition-colors">ผู้สอน</a>
         <a href="#courses" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
           <span>คอร์สเรียน</span>
           <span class="text-[10px] font-bold bg-yellow-400 text-slate-900 px-2 py-0.5 rounded-full shadow-sm">โปร 990.-</span>
+        </a>
+        <a href="#course-business" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 text-slate-800 font-bold">
+          <span>คอร์ส AI สำหรับธุรกิจ</span>
+          <span class="text-[10px] font-bold bg-cyan-100 text-cyan-800 border border-cyan-300 px-1.5 py-0.5 rounded-full">1,290.-</span>
         </a>
         <a href="#studio" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 text-cyan-700 font-bold">
           <span>ผลิตสื่อ AI Studio</span>
@@ -122,6 +126,10 @@
       <a href="#courses" class="block text-sm font-bold text-slate-800 py-1 flex items-center justify-between">
         <span>คอร์สเรียน AI</span>
         <span class="text-[10px] font-bold bg-yellow-400 text-slate-900 px-2 py-0.5 rounded-full">โปร 990.-</span>
+      </a>
+      <a href="#course-business" class="block text-sm font-bold text-cyan-800 py-1 flex items-center justify-between">
+        <span>คอร์ส AI สำหรับธุรกิจ</span>
+        <span class="text-[10px] font-bold bg-cyan-100 text-cyan-800 border border-cyan-300 px-2 py-0.5 rounded-full">1,290.-</span>
       </a>
       <a href="#studio" class="block text-sm font-bold text-cyan-800 py-1 flex items-center justify-between">
         <span>ผลิตสื่อ AI Studio</span>
@@ -211,7 +219,7 @@
             <div id="hero-video-trigger-box" class="relative bg-slate-950 rounded-2xl overflow-hidden shadow-xl group cursor-pointer aspect-video sm:aspect-[16/10] flex items-center justify-center">
               
               <!-- Video Poster Thumbnail -->
-              <img src="assets/images/cover-hero-video.png" alt="แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-95">
+              <img src="assets/images/cover-hero-video.png" alt="คลิปแนะนำ AI อะไรก็ได้" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-95">
               
               <!-- Dark Cinematic Gradient Overlay -->
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-slate-950/40 group-hover:bg-slate-950/30 transition-colors"></div>
@@ -228,7 +236,7 @@
               </div>
 
               <!-- Center Big Play Button -->
-              <button id="play-intro-video-btn" class="absolute z-10 w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 text-white flex items-center justify-center shadow-2xl shadow-cyan-500/60 group-hover:scale-110 transition-all duration-300 animate-glow" aria-label="เล่นคลิป แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้">
+              <button id="play-intro-video-btn" class="absolute z-10 w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 text-white flex items-center justify-center shadow-2xl shadow-cyan-500/60 group-hover:scale-110 transition-all duration-300 animate-glow" aria-label="เล่นคลิป คลิปแนะนำ AI อะไรก็ได้">
                 <i data-lucide="play" class="w-10 h-10 fill-current ml-1 text-white"></i>
               </button>
 
@@ -236,7 +244,7 @@
               <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-transparent z-10 flex items-end justify-between gap-3 text-white">
                 <div class="space-y-0.5">
                   <h3 class="text-base sm:text-lg font-bold text-white font-heading leading-tight drop-shadow-md">
-                    แนะนำคอร์ส Basic AI โดย AI อะไรก็ได้
+                    คลิปแนะนำ AI อะไรก็ได้
                   </h3>
                   <p class="text-cyan-300 text-xs font-medium">คลิกเพื่อรับชมวิดีโอแนะนำ</p>
                 </div>
@@ -542,7 +550,7 @@
           </div>
 
           <!-- Course Track 2: AI For Business (Special Promo 1,290.-) -->
-          <div class="relative bg-white rounded-3xl p-7 sm:p-8 border-2 border-cyan-500 shadow-2xl space-y-6 flex flex-col justify-between card-hover-effect ring-2 ring-cyan-400/40" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+          <div id="course-business" class="relative bg-white rounded-3xl p-7 sm:p-8 border-2 border-cyan-500 shadow-2xl space-y-6 flex flex-col justify-between card-hover-effect ring-2 ring-cyan-400/40 scroll-mt-24" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             
             <!-- Top Promo Ribbon -->
             <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 text-white font-bold text-[11px] px-3.5 py-1 rounded-full uppercase tracking-wider shadow-lg flex items-center gap-1 font-heading">
