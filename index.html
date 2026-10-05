@@ -1382,11 +1382,11 @@
       </div>
     </div>
 
-    <!-- 50% Die-cut Avatar Character -->
-    <div class="relative w-28 sm:w-36 h-auto pointer-events-auto cursor-pointer group">
-      <div class="rounded-3xl overflow-hidden border-2 border-cyan-400 shadow-2xl shadow-cyan-500/40 bg-white">
-        <img src="assets/images/david.jpg" alt="คุณดาวิด AI" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
-      </div>
+    <!-- David AI Assistant 3D Hologram Character (Three.js WebGL) -->
+    <div id="david-hologram-container" class="relative w-36 sm:w-44 h-48 sm:h-56 pointer-events-auto cursor-pointer group flex items-end justify-center select-none" title="คลิกเพื่อสนทนากับ David AI">
+      <canvas id="david-hologram-canvas" class="w-full h-full block relative z-10 transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_0_20px_rgba(0,194,255,0.6)]"></canvas>
+      <!-- Ambient Floor Glow -->
+      <div class="absolute bottom-1 w-24 h-5 rounded-full bg-cyan-400/30 blur-md pointer-events-none animate-pulse"></div>
     </div>
 
   </div>
@@ -1403,6 +1403,8 @@
   </script>
   <!-- Three.js 3D Neural Engine -->
   <script src="assets/three-ai-engine.js?v=20261001_1"></script>
+  <!-- Three.js David AI Hologram Assistant Engine -->
+  <script src="assets/david-hologram.js?v=20261005_1"></script>
 
   <script src="assets/app.js?v=20261001_1"></script>
 </body>
