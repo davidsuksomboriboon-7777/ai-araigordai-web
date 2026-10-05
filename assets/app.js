@@ -211,6 +211,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 4.2 Business AI Combined Auto-Slider (3s Auto-Slide: Video Promo & Poster)
+  const businessMediaSlider = document.getElementById('business-media-slider');
+  const slideBusinessVideo = document.getElementById('slide-business-video');
+  const slideBusinessPoster = document.getElementById('slide-business-poster');
+  const dotBusiness0 = document.getElementById('business-dot-0');
+  const dotBusiness1 = document.getElementById('business-dot-1');
+
+  if (businessMediaSlider && slideBusinessVideo && slideBusinessPoster) {
+    let currentBusinessSlide = 0; // 0: Video, 1: Poster
+    let businessSlideTimer = null;
+
+    const setBusinessSlide = (index) => {
+      currentBusinessSlide = index;
+      if (currentBusinessSlide === 0) {
+        slideBusinessVideo.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+        slideBusinessVideo.classList.add('opacity-100', 'z-10');
+        slideBusinessPoster.classList.remove('opacity-100', 'z-10');
+        slideBusinessPoster.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+
+        if (dotBusiness0) dotBusiness0.className = 'w-5 h-2 rounded-full bg-cyan-400 transition-all duration-300';
+        if (dotBusiness1) dotBusiness1.className = 'w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300';
+      } else {
+        slideBusinessPoster.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+        slideBusinessPoster.classList.add('opacity-100', 'z-10');
+        slideBusinessVideo.classList.remove('opacity-100', 'z-10');
+        slideBusinessVideo.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+
+        if (dotBusiness0) dotBusiness0.className = 'w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300';
+        if (dotBusiness1) dotBusiness1.className = 'w-5 h-2 rounded-full bg-cyan-400 transition-all duration-300';
+      }
+    };
+
+    const startBusinessAutoSlide = () => {
+      stopBusinessAutoSlide();
+      businessSlideTimer = setInterval(() => {
+        setBusinessSlide(currentBusinessSlide === 0 ? 1 : 0);
+      }, 3000);
+    };
+
+    const stopBusinessAutoSlide = () => {
+      if (businessSlideTimer) {
+        clearInterval(businessSlideTimer);
+        businessSlideTimer = null;
+      }
+    };
+
+    setBusinessSlide(0);
+    startBusinessAutoSlide();
+
+    businessMediaSlider.addEventListener('mouseenter', stopBusinessAutoSlide);
+    businessMediaSlider.addEventListener('mouseleave', startBusinessAutoSlide);
+
+    if (dotBusiness0) {
+      dotBusiness0.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setBusinessSlide(0);
+        startBusinessAutoSlide();
+      });
+    }
+    if (dotBusiness1) {
+      dotBusiness1.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setBusinessSlide(1);
+        startBusinessAutoSlide();
+      });
+    }
+
+    slideBusinessVideo.addEventListener('click', () => {
+      openAndPlayVideo('assets/videos/business-course-promo.mp4', 'วิดีโอคอร์ส AI สำหรับธุรกิจ', 'เน้นผลลัพธ์ธุรกิจ เพิ่มยอดขาย ประหยัดต้นทุนด้วย AI • AI อะไรก็ได้');
+    });
+  }
+
   // 5. Dynamic Poster Lightbox Modal (Supports multiple posters)
   const posterModal = document.getElementById('poster-modal');
   const closePosterBtn = document.getElementById('close-poster-btn');
