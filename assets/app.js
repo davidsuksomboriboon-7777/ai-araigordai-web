@@ -45,12 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Video Player Modal (Promote Intro Video, Basic AI Course Video, Student Showcase, Studio TikTok)
+  // 4. Video Player Modal (Promote Intro Video, Basic AI Course Video, Student Showcase, Studio Showcase)
   const playVideoBtn = document.getElementById('play-intro-video-btn');
   const heroVideoBox = document.getElementById('hero-video-trigger-box');
   const basicCourseVideoBox = document.getElementById('play-basic-course-video-box');
   const studentVideoBox = document.getElementById('play-student-video-box');
-  const studioTiktokBox = document.getElementById('play-studio-tiktok-box');
+  const studioVdoBox = document.getElementById('play-studio-vdo-box');
+  const studioImageBox = document.getElementById('play-studio-image-box');
   const videoModal = document.getElementById('video-modal');
   const closeModalBtn = document.getElementById('close-video-modal-btn');
   const videoContainer = document.getElementById('video-container-target');
@@ -116,9 +117,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (studioTiktokBox) {
-    studioTiktokBox.addEventListener('click', () => {
-      openAndPlayVideo('assets/videos/studio-tiktok-showcase.mp4', 'ตย.คลิปแนวปักตระกร้า ขายของ (TikTok & Reels)', 'ตัวอย่างงานวิดีโอ AI สำหรับปักตระกร้าและโปรโมทสินค้า • AI อะไรก็ได้ Studio');
+  if (studioVdoBox) {
+    studioVdoBox.addEventListener('click', () => {
+      openAndPlayVideo('assets/videos/studio-sample-vdo.mp4', 'ตัวอย่างผลงาน VDO AI', 'ผลงานการผลิตคลิปวิดีโอด้วย AI โดย AI อะไรก็ได้ Studio');
+    });
+  }
+
+  if (studioImageBox) {
+    studioImageBox.addEventListener('click', () => {
+      openAndPlayVideo('assets/videos/studio-sample-image.mp4', 'ตัวอย่างผลงาน รูปภาพ AI', 'ผลงานการสร้างสรรค์รูปภาพสินค้าและแบรนด์ด้วย AI โดย AI อะไรก็ได้ Studio');
     });
   }
 
@@ -129,6 +136,78 @@ document.addEventListener('DOMContentLoaded', () => {
   if (videoModal) {
     videoModal.addEventListener('click', (e) => {
       if (e.target === videoModal) closeAndStopVideo();
+    });
+  }
+
+  // 4.1 Basic AI Combined Auto-Slider (3s Auto-Slide: Video Promo & Poster)
+  const basicMediaSlider = document.getElementById('basic-media-slider');
+  const slideBasicVideo = document.getElementById('slide-basic-video');
+  const slideBasicPoster = document.getElementById('slide-basic-poster');
+  const dotBasic0 = document.getElementById('basic-dot-0');
+  const dotBasic1 = document.getElementById('basic-dot-1');
+
+  if (basicMediaSlider && slideBasicVideo && slideBasicPoster) {
+    let currentSlide = 0; // 0: Video, 1: Poster
+    let slideTimer = null;
+
+    const setSlide = (index) => {
+      currentSlide = index;
+      if (currentSlide === 0) {
+        slideBasicVideo.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+        slideBasicVideo.classList.add('opacity-100', 'z-10');
+        slideBasicPoster.classList.remove('opacity-100', 'z-10');
+        slideBasicPoster.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+
+        if (dotBasic0) dotBasic0.className = 'w-5 h-2 rounded-full bg-cyan-400 transition-all duration-300';
+        if (dotBasic1) dotBasic1.className = 'w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300';
+      } else {
+        slideBasicPoster.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+        slideBasicPoster.classList.add('opacity-100', 'z-10');
+        slideBasicVideo.classList.remove('opacity-100', 'z-10');
+        slideBasicVideo.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+
+        if (dotBasic0) dotBasic0.className = 'w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300';
+        if (dotBasic1) dotBasic1.className = 'w-5 h-2 rounded-full bg-cyan-400 transition-all duration-300';
+      }
+    };
+
+    const startAutoSlide = () => {
+      stopAutoSlide();
+      slideTimer = setInterval(() => {
+        setSlide(currentSlide === 0 ? 1 : 0);
+      }, 3000);
+    };
+
+    const stopAutoSlide = () => {
+      if (slideTimer) {
+        clearInterval(slideTimer);
+        slideTimer = null;
+      }
+    };
+
+    setSlide(0);
+    startAutoSlide();
+
+    basicMediaSlider.addEventListener('mouseenter', stopAutoSlide);
+    basicMediaSlider.addEventListener('mouseleave', startAutoSlide);
+
+    if (dotBasic0) {
+      dotBasic0.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setSlide(0);
+        startAutoSlide();
+      });
+    }
+    if (dotBasic1) {
+      dotBasic1.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setSlide(1);
+        startAutoSlide();
+      });
+    }
+
+    slideBasicVideo.addEventListener('click', () => {
+      openAndPlayVideo('assets/videos/basic-ai-promo-master.mp4', 'วิดีโอโปรโมทคอร์ส Basic AI Master', 'ตัวอย่างเนื้อหาและการใช้ AI ผลิตสื่อจริง • AI อะไรก็ได้');
     });
   }
 
