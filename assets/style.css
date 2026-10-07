@@ -1,8 +1,8 @@
 /* =======================================================================
-   AI อะไรก็ได้ (AI Arai Gor Dai) - Modern 2.0 Stylesheet
-   CI Design: Electric Cyan (#00C2FF), Tech Blue (#0088FF), Deep Navy (#001F54)
+   AI อะไรก็ได้ (AI Arai Gor Dai) - Official Academic & Studio Stylesheet
+   CI Design: Electric Cyan (#00C2FF), Tech Blue (#2563EB / #0088FF), Deep Navy (#001F54)
    Fonts: Kanit (Headings/Buttons/Badges) & Prompt (Body/UI)
-   Weights: 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold) - No ExtraBold/Black
+   Aesthetic: No AI Design Smell - High Precision, Clean Corporate & Creative Studio
 ======================================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
@@ -69,150 +69,138 @@
 /* --- 2. Color Variables --- */
 :root {
   --brand-cyan: #00C2FF;
-  --brand-blue: #0088FF;
-  --brand-deep: #0052CC;
+  --brand-blue: #2563EB;
+  --brand-deep: #1E40AF;
   --brand-navy: #001F54;
   --brand-dark: #0A192F;
-  --brand-yellow: #FACC15;
+  --brand-yellow: #F59E0B;
   --brand-emerald: #06C755;
   --brand-fb: #1877F2;
+  --surface-border: #E2E8F0;
 }
 
 /* --- 3. Base Styles --- */
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
   font-family: 'Prompt', system-ui, -apple-system, sans-serif;
-  color: #0f172a;
-  background-color: #f8fafc;
+  color: #0F172A;
+  background-color: #F8FAFC;
   overflow-x: hidden;
   letter-spacing: -0.01em;
   font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading, .font-title, button, .btn {
   font-family: 'Kanit', 'Prompt', sans-serif;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
-/* --- 4. Remotion & Kinetic Animation Keyframes --- */
-@keyframes shimmerText {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes pulseHalo {
-  0%, 100% { transform: scale(1); opacity: 0.3; }
-  50% { transform: scale(1.08); opacity: 0.55; }
-}
-
+/* --- 4. Micro-Interactions & Transitions --- */
 @keyframes floatGentle {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-4px); }
 }
 
-@keyframes ringPulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 194, 255, 0.5); }
-  70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(0, 194, 255, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 194, 255, 0); }
-}
-
-/* --- 5. Kinetic Typography Utilities --- */
+/* --- 5. High-Precision Typography (Eliminating Cheap Rainbow Shimmer) --- */
+/* Clean, confident brand blue accent for high-authority headings */
 .text-shimmer-brand {
-  background: linear-gradient(135deg, #0077EE 0%, #00C2FF 35%, #38BDF8 65%, #0052CC 100%);
-  background-size: 200% 200%;
+  background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #0284C7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmerText 5s ease infinite;
+  display: inline-block;
 }
 
+/* On dark studio surfaces, maintain crisp readability with luminous ice-blue */
+#studio .text-shimmer-brand,
+#closing-cta-segment .text-shimmer-brand {
+  background: linear-gradient(135deg, #FFFFFF 0%, #BAE6FD 50%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* High-contrast warm gold for quotes and callouts */
 .text-shimmer-yellow {
-  background: linear-gradient(135deg, #FDE047 0%, #FACC15 40%, #EAB308 70%, #FEF08A 100%);
-  background-size: 200% 200%;
+  color: #F59E0B;
+  background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmerText 5s ease infinite;
+  display: inline-block;
 }
 
-/* --- 6. Card Hover & Motion Physics --- */
+/* --- 6. Architectural Card Framing & Shadows --- */
 .card-hover-effect {
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
   will-change: transform, box-shadow;
 }
 
 .card-hover-effect:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 35px -10px rgba(0, 136, 255, 0.15), 0 0 0 1px rgba(0, 194, 255, 0.3);
-}
-
-.glow-box-cyan {
-  box-shadow: 0 0 35px -5px rgba(0, 194, 255, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
 }
 
 .glass-nav-2 {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
 }
 
 .glass-card-dark {
-  background: rgba(10, 25, 47, 0.85);
+  background: rgba(15, 23, 42, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 194, 255, 0.2);
+  border: 1px solid rgba(51, 65, 85, 0.7);
 }
 
 .glass-card-light {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
+/* Studio Monitor Bezel Aesthetic */
+.studio-frame {
+  background: #0B1120;
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
 /* --- 7. Animation Triggers --- */
 .animate-float-gentle {
-  animation: floatGentle 4s ease-in-out infinite;
-}
-
-.animate-pulse-halo {
-  animation: pulseHalo 6s ease-in-out infinite;
-}
-
-.animate-ring-pulse {
-  animation: ringPulse 2.5s infinite;
+  animation: floatGentle 5s ease-in-out infinite;
 }
 
 /* --- 8. Custom Scrollbar --- */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #94a3b8;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0088ff;
+  background: #94A3B8;
 }
 
-/* --- 9. Remotion Pop-up Character & Speech Bubble --- */
+/* --- 9. Remotion Assistant Character & Speech Bubble --- */
 @keyframes remotionPopUp {
   0% {
-    transform: translateY(120%) scale(0.85);
+    transform: translateY(120%) scale(0.9);
     opacity: 0;
   }
-  60% {
-    transform: translateY(-10px) scale(1.03);
+  70% {
+    transform: translateY(-6px) scale(1.02);
     opacity: 1;
-  }
-  80% {
-    transform: translateY(4px) scale(0.98);
   }
   100% {
     transform: translateY(0px) scale(1);
@@ -222,23 +210,13 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-title, button, .btn {
 
 @keyframes speechBubblePop {
   0% {
-    transform: scale(0) translate(20px, 20px);
+    transform: scale(0.9) translateY(10px);
     opacity: 0;
   }
-  70% {
-    transform: scale(1.06) translate(-2px, -2px);
-    opacity: 1;
-  }
   100% {
-    transform: scale(1) translate(0, 0);
+    transform: scale(1) translateY(0);
     opacity: 1;
   }
-}
-
-@keyframes textGlowShimmer {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 @keyframes remotionPopDown {
@@ -246,38 +224,33 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-title, button, .btn {
     transform: translateY(0px) scale(1);
     opacity: 1;
   }
-  30% {
-    transform: translateY(-8px) scale(1.02);
-    opacity: 1;
-  }
   100% {
-    transform: translateY(140%) scale(0.85);
+    transform: translateY(130%) scale(0.9);
     opacity: 0;
   }
 }
 
 .remotion-avatar-enter {
-  animation: remotionPopUp 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: remotionPopUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .remotion-avatar-exit {
-  animation: remotionPopDown 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: remotionPopDown 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .remotion-bubble-enter {
-  animation: speechBubblePop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s forwards;
+  animation: speechBubblePop 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
   opacity: 0;
 }
 
+/* Clean, high-legibility speech bubble typography */
 .speech-bubble-text {
-  background: linear-gradient(135deg, #0088FF, #00C2FF, #0052CC, #0088FF);
-  background-size: 250% 250%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textGlowShimmer 4s ease infinite;
+  color: #0F172A;
+  font-weight: 600;
 }
 
 /* --- 10. Three.js 3D Neural Engine Styles --- */
+/* Tuned opacity: subtle, non-intrusive 3D spatial field that keeps text 100% legible */
 #three-ai-canvas {
   position: fixed;
   top: 0;
@@ -286,7 +259,7 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-title, button, .btn {
   height: 100vh;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.95;
+  opacity: 0.30;
   transition: opacity 0.8s ease;
 }
 
@@ -296,18 +269,14 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-title, button, .btn {
 }
 
 .card-3d-interactive {
-  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
   will-change: transform;
-  transform-style: preserve-3d;
 }
 
 .card-3d-interactive:hover {
-  box-shadow: 0 25px 50px -12px rgba(0, 194, 255, 0.25), 0 0 0 1px rgba(0, 194, 255, 0.4);
+  box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(37, 99, 235, 0.2);
 }
 
 #three-hud-controller {
   display: none !important;
 }
-
-
-
